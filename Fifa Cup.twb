@@ -1,0 +1,766 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20241.24.0515.0324                               -->
+<workbook original-version='18.1' source-build='2024.1.3 (20241.24.0515.0324)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='World Cup - Tableau format (world_cup_results)' inline='true' name='federated.06q6gun0nzzv3j14x28f61ivhx5w' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='world_cup_results' name='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='F:/world_cup_results.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i' name='World Cup - Tableau format' table='[&apos;World Cup - Tableau format$&apos;]' type='table'>
+          <columns gridOrigin='A1:M1705:no:A1:M1705:0' header='yes' outcome='6'>
+            <column datatype='integer' name='Year' ordinal='0' />
+            <column datatype='integer' name='Game #' ordinal='1' />
+            <column datatype='date' name='Date' ordinal='2' />
+            <column datatype='string' name='Time' ordinal='3' />
+            <column datatype='string' name='Round' ordinal='4' />
+            <column datatype='string' name='Stadium' ordinal='5' />
+            <column datatype='string' name='City' ordinal='6' />
+            <column datatype='string' name='Country' ordinal='7' />
+            <column datatype='string' name='Team' ordinal='8' />
+            <column datatype='integer' name='Team G' ordinal='9' />
+            <column datatype='string' name='Opponent' ordinal='10' />
+            <column datatype='integer' name='Opponent G' ordinal='11' />
+            <column datatype='string' name='Observation' ordinal='12' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i' name='World Cup - Tableau format' table='[&apos;World Cup - Tableau format$&apos;]' type='table'>
+          <columns gridOrigin='A1:M1705:no:A1:M1705:0' header='yes' outcome='6'>
+            <column datatype='integer' name='Year' ordinal='0' />
+            <column datatype='integer' name='Game #' ordinal='1' />
+            <column datatype='date' name='Date' ordinal='2' />
+            <column datatype='string' name='Time' ordinal='3' />
+            <column datatype='string' name='Round' ordinal='4' />
+            <column datatype='string' name='Stadium' ordinal='5' />
+            <column datatype='string' name='City' ordinal='6' />
+            <column datatype='string' name='Country' ordinal='7' />
+            <column datatype='string' name='Team' ordinal='8' />
+            <column datatype='integer' name='Team G' ordinal='9' />
+            <column datatype='string' name='Opponent' ordinal='10' />
+            <column datatype='integer' name='Opponent G' ordinal='11' />
+            <column datatype='string' name='Observation' ordinal='12' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:M1705:no:A1:M1705:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Game #</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Game #]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Game #</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Time</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Time]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Time</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Round</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Round]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Round</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Stadium</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Stadium]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Stadium</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>City</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[City]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>City</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Team</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Team]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Team</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Team G</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Team G]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Team G</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Opponent</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Opponent]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Opponent</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Opponent G</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Opponent G]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Opponent G</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Observation</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Observation]</local-name>
+            <parent-name>[World Cup - Tableau format]</parent-name>
+            <remote-alias>Observation</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Games Played' datatype='integer' name='[Calculation_1749648513370161152]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([Team])' />
+      </column>
+      <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='World Cup - Tableau format' datatype='table' name='[__tableau_internal_object_id__].[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]' role='measure' type='quantitative' />
+      <drill-paths>
+        <drill-path name='Country, City'>
+          <field>[Country]</field>
+          <field>[City]</field>
+        </drill-path>
+      </drill-paths>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_0yr7z7a0jfx8n41ex8blb0n5353t.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/04/2024 05:02:20 PM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>0</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Game #</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Game #]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Game #</remote-alias>
+              <ordinal>1</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>825</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Date</remote-alias>
+              <ordinal>2</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>333</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Time</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Time]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Time</remote-alias>
+              <ordinal>3</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>37</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Round</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Round]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Round</remote-alias>
+              <ordinal>4</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>23</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Stadium</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Stadium]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Stadium</remote-alias>
+              <ordinal>5</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>182</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>City</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[City]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>City</remote-alias>
+              <ordinal>6</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>151</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Country</remote-alias>
+              <ordinal>7</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Team</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Team]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Team</remote-alias>
+              <ordinal>8</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>83</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Team G</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Team G]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Team G</remote-alias>
+              <ordinal>9</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Opponent</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Opponent]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Opponent</remote-alias>
+              <ordinal>10</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>84</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Opponent G</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Opponent G]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Opponent G</remote-alias>
+              <ordinal>11</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Observation</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Observation]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Observation</remote-alias>
+              <ordinal>12</ordinal>
+              <family>World Cup - Tableau format</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>41</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Poland&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='World Cup - Tableau format' id='World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943'>
+            <properties context=''>
+              <relation connection='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i' name='World Cup - Tableau format' table='[&apos;World Cup - Tableau format$&apos;]' type='table'>
+                <columns gridOrigin='A1:M1705:no:A1:M1705:0' header='yes' outcome='6'>
+                  <column datatype='integer' name='Year' ordinal='0' />
+                  <column datatype='integer' name='Game #' ordinal='1' />
+                  <column datatype='date' name='Date' ordinal='2' />
+                  <column datatype='string' name='Time' ordinal='3' />
+                  <column datatype='string' name='Round' ordinal='4' />
+                  <column datatype='string' name='Stadium' ordinal='5' />
+                  <column datatype='string' name='City' ordinal='6' />
+                  <column datatype='string' name='Country' ordinal='7' />
+                  <column datatype='string' name='Team' ordinal='8' />
+                  <column datatype='integer' name='Team G' ordinal='9' />
+                  <column datatype='string' name='Opponent' ordinal='10' />
+                  <column datatype='integer' name='Opponent G' ordinal='11' />
+                  <column datatype='string' name='Observation' ordinal='12' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='World Cup - Tableau format (world_cup_results)' name='federated.06q6gun0nzzv3j14x28f61ivhx5w' />
+          </datasources>
+          <datasource-dependencies datasource='federated.06q6gun0nzzv3j14x28f61ivhx5w'>
+            <column caption='Games Played' datatype='integer' name='[Calculation_1749648513370161152]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNT([Team])' />
+            </column>
+            <column datatype='string' name='[Team]' role='dimension' type='nominal' />
+            <column-instance column='[Team]' derivation='None' name='[none:Team:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1749648513370161152]' derivation='User' name='[pcto:usr:Calculation_1749648513370161152:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='[Calculation_1749648513370161152]' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:Team:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[pcto:usr:Calculation_1749648513370161152:qk]</rows>
+        <cols>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</cols>
+      </table>
+      <simple-id uuid='{E71F544E-C933-4F72-8574-B00DBB81B7C3}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Opponent:nk]</field>
+            <field>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{64D034B3-EE24-4AA7-9BA5-540E28949F18}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAeFUlEQVR4nO3dSXCc553f8e/b/Xa/vXcDjX1fTZAAAVJcJJMyzRI1siRrxpHtcTw5pBz7
+      Njnl4Fx8cXLLIVO5pFKVXCYH17hSGVelJIu0ZG4SPTIlbgAIEBuJpQE00CvQjd77fd8cYFKi
+      gAYlNACCeJ9PFUtCA/30g7f7h3d7/s8j6bquIwgGZXreHRCE50kEQDA0EQDB0EQABEMTATC4
+      TGye//UP/5Xf/P4y6bz2vLuz5yRxFUi49+El3KfPsTJ0jdsjs7z6vbe5+ccPGDhzntHBm2Sz
+      4DCZOPfDv6XJa3/e3d1R8vPugLB/jI9P0tH7ErngAxKpNYKhFSqbuiiEonRUu0hmC3DAAiD2
+      AAIrS0vIlVXoyWVuDz+kr7+XwPRD6ps70SUdLZfDZZWRPJV4bJbn3d0dJQIgGNqenASrqorI
+      mbAf7UkAxIdf2K/EZVDB0EQABEMTARAMTQRAMDQRAMHQRAAEQzsQQyFCoRCjo6OcP3+eDz74
+      gEwmwzvvvIMsy7z//vvU1tZitVoZGRmhqamJmpoaxsfHeemll7h79y4XLlwgnU5TV1f3vH8V
+      YY8diD2A1WpFVVUAcrkcb7zxBlarlUgkgs1mY3l5me7ubi5cuIDP52NwcJBz584xPT2NLMsM
+      Dg4C4n6FER2IAPh8PiyW9TEqfr+f3/3ud8RiMWpqavB4PCwsLKCqKsPDw/T19bGyssJHH31E
+      ZWUliqIQiUS4ePEi4XD4Of8mwl47EIdAg4ODfPbZZyiKQjAYRJZlIpEI2WyWQCBAW1sbsizT
+      1NSExWLh8OHDBAIBmpubMZlMOJ1OPvnkE+z2gzXSUXi2bQ+GS61GmAut0dPVytzUKKsFG42V
+      FuaieXpb/WTMbrz29XwVi0XMZjOSJO1o57eyuLhIbW0tZrN5z15TePFsew9gttiRiKMXV1ha
+      gSNH6gnOTkNBZT4sUV1jQ9fXP3y6rj/5t1tS2QKq+kX7DnclyXQBKHyt5ytWM4pFhMVoth0A
+      m8OJbJJAzZFJZxi5P0RnZzdaaJmVlVXCkTh9/S9hk9c/+Jq2u+V2//l/X2ciENv28//uQi8/
+      /u7hHeyR8CLYdgCWZieZnp5BUgao8WqsqXY8Ph/5XJ4qKcvDxQQWWcJsNqHr+q4fAkmU17bJ
+      ZEKWD8QpkfANbPsdr2vtpq61e/2Lpponjzc21gNQ1VBexwRhLxyIy6CCsF0iAIKhiQAIhiYC
+      IBiaCIBgaCIAgqGJAAiGJgIgGJoIgGBoIgCCoYkACIYmAiAYmgiAYGgiAIKhbTsAxXyGwMLS
+      +hdqltn5JTKJMJMzi+j5FMmsulN9FIRds+16gLXkGqvJVZr1WmYfPmR2NU8uYSWn6swF89Q3
+      texkPwVhV2w7AD5/NZGVVQrpCIFoDq2YpqqlhpnFMLFohMBimBMnT2CRNDRN2/U5d8ptX1M1
+      CoWvVz8sHBxllUSOjY2j0kdzg5/puQzOyhoq00Vk0qwFk4CELMt7MitEuW2bzKYncwsJxlFW
+      SeQ7j0sigdbWVgDa2tf/29ReZs8EYQ+Iq0CCoYkACIYmAiAYmgiAYGgiAIKhiQAIhiYCIBia
+      CIBgaGI2WKGkdDrNH/7wB86fP8/c3Bz37t3jO9/5Du3t7Xz22WeMjY1x8uRJ7t69SyqV4syZ
+      M9y5c4cTJ05w9+5dzp49Szab5fDhw3u6NsQ3IQIglGSz2ejp6SGTydDT04PD4SCdTgNw7Ngx
+      7HY7iqLw05/+lGvXrhGLxWhqamJpaQlZlrl16xb19fWk02mcTudz/m02Jw6BhJJMpi/GR83O
+      zpLNZjly5AgAExMTKIpCZ2cn9+/f58iRIxSLRTweDwBnzpyhqqqKYDDInTt3ntvv8Cx7ugdY
+      XV3l97//PW+++SYLCwvMzs7yzjvvoOs6ly5dIhKJcP78ea5evYrT6aSzs5O7d+/S09PDyMgI
+      586dI51OMzAwsG93qQfJysoK169fx+Fw4PP5CIfDFItFMpkMoVCIZDKJ1WpFlmUaGhpIJBLc
+      unWLU6dOYbFYOH78ONeuXaOhYf/Olb+nAfB6vZw4cYJCocDRo0eJx+PA+lDmaDSKrusMDw8/
+      GTna39+P3W4nHA4jSRL37t3D7XbT3t6O1+vdy64bks/n4xe/+MVTj+VyOQqFAi6Xa8PP9/T0
+      0NPT89Rj77777q72sVz74hxAkiTeffddBgcHWV1dpa2tjUAgwIMHDzCZTJw9e5a+vj7u3btH
+      IpFgeHiYV1999Xl32xDiyQxLsdTGb0SzX+v5isVMR0PFDvdq5+xpAKLRKJ9++ikul4vm5mbG
+      x8exWCzouo4sy6ysrHDu3DkuX75MQ0MD8XicR48eUSgUqK6u5vTp01y9epXOzs697Lah/cv9
+      AP/zve0fwzdVe/jv/+HtHezRztp2AKJLc0wvr3Giv5N7N++SNVupr3AwH88z0FFN0V5NhePp
+      5v1+Pz/72c+efP3yyy+Tz+fRdR1FUZ48/oMf/ODJ/3/1L/33v//97XZZEDbYdgD8dS3EU1OA
+      lYGTA0xMzpLN5VHzWZajMTSLiretEU1VnyqJXIqlmAsnt91hpyLT21a14XGdMksiNVESuZly
+      V/fUdX1fb9cdOAQqMjExS8e3urGYJCoW51iIJnFqK6RyDbiU9bV3Hy9YfWs8yD9eGtz2q3U0
+      VPAP//6NDY+LVSJ3h8lU3pVySZL29XYtqyZ4KbgMZjPxWJR7Q3kGjh5Bdvg45LLzcDGJQ5Ge
+      uly5U5cud+sSqLi0ujv283bdkWVSu9q+KABWKn0A9Ptqy+yaIOw+cSdYMDQRAMHQRAAEQyt5
+      DpBLRfjjH66TKmpIkpXzb79JtVMp9eOC8EIquQdQnFX81Ztn8Vd10N9WxVpm/17LFYTt2vIQ
+      yGKrIj79KR9PLeN32faqT4KwZ7YMQDEXY34qRWeTn3AivVd9EoQ9s2UAzFYvh441sBBKUuvd
+      nxU9glCOLW+E6Xoes81Lb/cR7BZxwUg4eLb8VEuSFV+Fg9FbN/g/v7tEfq96JQh75BlDIYpY
+      7RWc/nYntXU1+6N6RhB20NYnwfk1rv7fD7g9MsSaahJ3zYQDp+RnWtd1JJOT77x1mlQ8jcW8
+      f0f0CcJ2bXEnOMzF96+QA1x2O5JJBEA4eEoGwGrzUlXlIWOt5vXvnMT0lTHdyXiIufAaR7rb
+      mLh/h4JSTb1bZyaap6/VT8bsxecQZw3C/lbyE5oIzZAx12AJBwgkDtPkdmL+0l7AancjS6vo
+      uTBFWwsubZnZkASqykI4TkWVgq470XX96X9lli6i62WX6W3e7O60+6Irf3HP/b1dS+8BHC7W
+      lgfJqwUilz/G9ebr+B3WJ99XbPb1QOgaJrMNs2SiuaWZleUFVlYTROOrHOk7jk1e34KPN8JO
+      rJa62QYtN1giAJvbieVt9/N2LRkAh6+Rd//136JpGqm1NVx261PfX5qdZHZmDknpoxgfI6JU
+      M+BzUshWUOm18zCYwCJLmM0mdF1/MtnVVw+lvrESNaaiJnh3mMo+93uBa4ILmWWuvHeZwbkU
+      P/l3/4b2qi9mA/tySSRNX5Q/NtTXAeCv34XePgcLCwskEgl6enqQJIl4PE6xWATW58f0er00
+      Njby8OFDjhw5wsOHDzl8+DBra2v4fL497Ws2m2V4eJj+/n4URaFQKDA/P09jYyP37t1DVVX6
+      +/sZGxujpaWFRCJBRUUFsizjcrnKLoB/EW35G8tWH1hsvPHmGbxf2QMYQT6f5+bNmwQCAYLB
+      IJqmMT09zejoKHa7Hb/fz8TEBPPz8+RyOT744AMePXrEn/70JyKRSMl2dV1nfn6eRCLx5OvF
+      xUWSySTZbJbp6Wny+TyaphEOh0mlUiwvL1MoFMjnS9+Pv379OjabjU8++QRYD+/g4PoMHLW1
+      tUxPTxMMBrFarVy5coWhoSE+++wzRkdHd3CrvVi2DICua0TmwxS0PPmiuld92jdkWcbj8TAx
+      MUEoFMJkMnH06FEsFgsul4tisciJEydobm4mm81y9uxZ0uk0qVSKDz/8kMXFxU3bDQaDfP75
+      51y+fJlCocDy8jI3btzg4sWLjI+PMzU1xe3btxkeHuY3v/kNN27c4PLlywwNDZHL5Ur2t6Oj
+      g6GhIQKBAABtbW1UVVVhNpvx+/00NjbS0dHBysoKL7/8Mk6nk3Q6zdTUFNevX9+VbbjfbRkA
+      Tc0QWlji9t37FLQdOHt9wUiShN1uR5Zl6uvrWVhY4MqVK1y9epVQKMTCwgLNzc389re/JRqN
+      UigUGBgYoLW1lUKhQCq1yZyagNvtJpFIMD09TS6XIx6Pc/bsWWpqamhra8NsNtPW1kYkEqGj
+      o4Pa2lp0XWdmZoZLly6VnGjKZrOhaRqHDx9menqasbExrl69yt27dxkZGaGvr4+bN28yMjLC
+      /Pw83/72t2lrawMgmdz+ZGUvsi3PAWSlgh/+/EdEM2aq3cYshzx9+jSnT58mGAyiKArnz5/n
+      u9/9Llarlddffx1Jkvj5z3+OpmlYLBYkaX0upO7u7idz63+Voii0t7djtVrJ5XI4nU6uX7+O
+      LMt8+OGHuN1uwuEw8/PzDA8P86tf/YpMJkM6nSYUClEoFDZtu7GxkZ/85CdIksSDBw/o7e3l
+      l7/8JWazGZPJhMlk4vTp0xw/fvzJ3P/Hjh2jv79/X8/ds5u2DEAxG+bGn+7TfqiTvKphk817
+      1a99QZKkJx+0lpaWkj9ntW48P9rsscdkWaazs5NTp04xPDzMwMAAr7/+Oi6Xi0wmQyqVwufz
+      0d/fTzqdxm63c/z4cSRJIplMYrfbN23XZDI9mWN1YGDgyWt9mdlsfjJL3+Pf0Ygnv49tGQBJ
+      slAorJFMrqEa8BAokcrxn/7xWllt/Me/O0tt5dNz6ZtMJhobG4H1PQxATU0NAA6HA7/f/+Rn
+      HQ4HsH54Azw1ifBX/Y//d4up+ei2+3rhRAdvv9K97ee/iJ5REFMkm8n/ZQbnverS/lFUNaYW
+      4mW1sdnFg8/HFrj456ltt1nlc/D3/+rUhscXI4my+nusO7Pt576otgyA2eKmqcZNKpdl/97L
+      e/GE42luTwS3/fymavcO9sbYnlEPsEpoJoZmlkilRT2YcPCUrgfQVHRzBe/827+mobqGGu/m
+      J16C8CLbYjToNKOLRZJzY+SLKsF4mo4asesVdsbg4CBDQ0N0d3fzyiuvEI1G+fjjj3n77bcZ
+      GRkhmUxy5swZ3nvvPV555RUCgQANDQ0oioLf73/qStZjmqZx6dIlotEoFy5coL6+nqGhIdbW
+      1jh16hQfffQRhw8fRlEUbt26xWuvvVY6AHaXj5kHf6ClrY2lhzN4xbSIwg7q7++nubmZyclJ
+      AK5du8Zrr73Ghx9+iKqquN1u3n//fU6ePMn169eprKwkGo1SVVVFdXX1pm1KksRbb73FrVu3
+      sFqtZLNZZmdn8fv9XLt2jebmZu7evQvA0aNH+eCDD0ofAlldft599wd0dnTwwx//mEqn8cYC
+      CbtrcHCQ/v5+AE6cOMHFixeJxWKk02lmZmZobm7mypUreL1enE4nqqry4MEDLl26tGl7kiSh
+      aRqxWAy/34/NZqOyspKbN28iyzJ37txBkiQ8Hg+ffPIJPT09pQNQzKeZmZ4lGosxOz1DplDc
+      na0gGNLju9k2m42RkRFyuRxra2ucPHmSfD6Pqqqsra0B62sTDwwM0N7ejqIoW961npyc5OjR
+      o6TTaaanp8lms3g8Hmpra1FVlWw2SyazfrlXkqQtLoPqOmqxSF7T0HWNUvfBdF1ndvI+BaWa
+      Bq/EXDTPoaYK1jQ7Hrux7hwLX5/VauXVV1+lUCigKApdXV0cOnQIgN7e3k2f09fXR19f35bt
+      Pl6oOxQK4fV6ef311598b7N2S+4BZMXFtw41ceWf/pk/3f6clfTmA7D0Ypx41gWJRcZno6iZ
+      BHNLEeyKcW+vC1+fxWKhq6trx9utqal56o56Kc8YCmGm/2QvU6vFLWoZLeTXgkRlha72CgIL
+      IeLRCIGFECdPnsRi0p5aJlXdpWU3yy3d09SNy6Q+LnwpR7FY3NCuqpU3tFzX2XwblDlcRVPV
+      jX1Vd+f9+i//9CkPZkvXTDzLX5/p5kfnep56LJ0t8Pf/bfPzg1K2CIBOOrWKp/UY3zUnKVkZ
+      p6kUihqSpOLwVlOZKiCTIRVMPFkis1gsPimJNO/AspubjYQsdzSjyWza0K4slx8AWZY3tGs2
+      lXdoKElsvg3KLF80mc0b+2renfcrmy+yltn+zdWiqm/sa1H/xm1uEQCV8aG7/HkwSldPJ+f7
+      N78MalJ8vHrui9XcW9vWR002tn2jfgjCc7FFvGVOvPo9uhrtJBKrFFUDjoYTDrwt929qIUlW
+      81Fr04mnS5fiCcKLqvTUiOlV1nIOvv3KIVKqleYKx172SxD2RMkApGIB/vm9OzS2+AErVXW1
+      VBhwZgjhYCsZAJPZxsmz5+g9VA9IWKyb17cKwousZADcVc30eFVUTcIh/vILB1TJAGQTy7x3
+      8SNW1hwcPtzKsZdP4bWJvYBwsJS8CuSsbObtt77H0cPNeCoqscliaINw8JT+VEsSdqeNwNwC
+      M6ODhJLiMqhw8Gz5Z91ktqFYdYomGbt1/87wKwjb9YxZIVz8zY9+SL4Idps4ERYOnpIBUItZ
+      snmJezf+yFIiz9k33qLOY9vLvgnCrisZAF0tMjEyylpRw1VRhUsRh0DCwVO6JDKXZmFhERUr
+      bocNrdy1vQRhHyr5Z90sW3HYrTjq2jl9tAu95Hh7nXRylbUc+FwWEhkVv8dGXpdRxKVTYZ8r
+      GQCLw8dr33v7mQ3oWo77IxM0tbYz8yjASlolV+vFW9uCmEhF2O/KPrDXslFiq3m0+QDNNT7i
+      mTiRSJz55VWOHRvAjCpKIkVJ5KaPl0PTdub9KjsAJlsV1b55inoRd00zNUXQtQyZeAZV01Gs
+      oiRSlETuwvtl2uT9Kn7zUJUdAEmycvRYP0XdhF2RcbS2YpJ06vIqdos4BxD2t/KvbUoSVsXO
+      49tk8l9WkXHYxWVTYf8Tf6IFQxMBEAxNBEAwNBEAwdBEAARDEwEQDE0EQDA0EQDB0EQABEMT
+      ARAMTQRAMDQRAMHQRAAEQxMBEAxtR8YsF1IxBh+GafNbmI4WONrmJyv78DnEkGhhfyv7E6rr
+      OtOzQXStyEqiAIUiC+E4ngoLut2Druvouo72l1LIckvh0HVUtbySws2b3diuppdXDgjrpXs7
+      3a6us+k2KH/TbtwGZb9f7OH7tY1y27IPgXLxWcamF5l5NEtVQzN+j53V5BqB2Uek8hs33m5N
+      rlJ2u5s1YLSZYMr+sH+T19q7l9pK2XsAW2Ubf/P9NuYCAXweF5lMBRUeOw8XEyiyhMkkoWka
+      JpMJSZIwlVkLiiRhNm+sqS2zVSTTxnZNZdYvP25jQ7tSuXW2bL4Nyt20m/S13Npd2Pz9KvcN
+      kzb5HJhM33xPs2MH6S3NzQDU19UAcLJ2p1oWhN0jrgIJhiYCIBiaCIBgaCIAgqGJAAiGJgIg
+      GJoIgGBoIgCCoYkACIYmAiAYmgiAYGgiAIKhiQAIhiYCIBjaDlSEacxOjpI2eWiutBKI5jnU
+      XEFKd+Cxl7cWliDsth3YAxTxVLWiFOJMBmJouSSB5Sh2RexchP1vBwpiLGQSM9ir2qi35JiY
+      CRKLhJmbX+bkqVNYTZpYJlUsk7rp4+XYN8uk6sUV7o/OUlGXxX/0CJUVOSxkeLSUwGSSkGWx
+      TKpYJvUAL5NqslTwvbf/6snXLa1/KY1sLbdlQdh94kBdMDQRAMHQRAAEQxMBEAxNBEAwNBEA
+      wdBEAARDEwEQDE0EQDA0EQDB0EQABEMrfzSorpNJr6GbFRSzTjqv4bJbKOpmLOZy55YXhN1V
+      dgA0Lc3gvREkWcbtsrKyVqS9sQJnVQuWzRZGEIR9pPxDoGwcf+tRWurcmGUbSBqR6ArjD0bJ
+      q/tkHRxBKKH8ACg+YoEHLITWaO3qorHKj81uxaQXKGxjfLYg7KXy6wHMTvp6O9FkBzaTRH1T
+      E2ZJI5HO47CKc2xhfyv/JFiScHoqnnxpta5X6VR4FXRdp1hUn1q+srnazYWXtl8tU+1zblr6
+      dvJQHU3Vrm2321rj2dCubKKsvgLYLKYN7Tb4nWW1W+G2b7oNjnfVUu21b7vdjjrvJn117Upf
+      X+qupca3/b62b9JXCf0b91XSy18I9pm+XBK50+3K8s4vxr0b7YptsD/7uifHKDux3OiL3u6L
+      1Nfdanc/9nXPAiBJEnOPJkjlvu4sAxqFfBGtWCBf2Lw4fbNffDU8z58//TNTgeUtmi6SzeVY
+      Xg5v2a5ayHHnsxvcGR5js8kR0qsREtnSMzysRGM8ftrjbfBlQ7ducGdwjHJK7x/3NZ2IcPvz
+      zwiEVspobWO7XxWNRVHzeb78W+uaRigU+sZtBibHWM0VySZDjD0KbvIMlWw2/+x2i2kePAyg
+      FrNEIqtfPLuQR9VhJRql1KfO/Otf//rXz3yFHaBrGaYnZ1EtDiQ1x+LCIpKWY3hkEofXQ2Bi
+      hDR2svEgE5Mz6GT4+PrnuH1e8kWV0PxDAqEkLqvG4P0HuHxV2Cwb7zPE42Gq61oILy9jt8ks
+      LiyQScaYmgvhVjRu3xlEMsskcioroTA1tdUl+6zm8mR1ic62FtLxEA8mJrG6fMQXHzI1H8Kq
+      Z0ibnMyPDZLBTjEVYXziIU5fFfNT9xmfDtHS1lTyr8zKapLu7i5SiRgLwTDpeJCZpQReu87I
+      g0lyKOhrYcanl1FMGR48WqS62r/JYuM6E+OTdB/pxSabyCRCjD1cxGOXmZtfIF/IMT4+RTIR
+      I5bSMGVjjEwG8FW4mR4bJZQsYqKI1QypTBHFunEWh8cWF+cJjg4xtpLBqWV4MDVHpd/PwvwM
+      smxH0jLksX6tm6DR4COiGQuFWIBQxoxLSjExG8JuAVXXyGRTRMM5MqvzzIXXMOXijM+Gqa6q
+      fHobZOLcnwpgdzqJx9fIxBdYTuRZevA590M5rNkYjwJLuH0VBCZHSBat6Pkk80vRvQvA6vwU
+      40txVlYyyIVVKhvaWVpcoK3FT3BigolwjkIuh6YV6GzykpQq8Xsr8dthJZ0no4LHUiSfLxCJ
+      hEgUzDRUV2x4nUQ0yNxiDKvDSTq+RFVTN6uhAOHgHEpDLx5znkqvnaVEASmf2zIAWiHH+PgI
+      maKZ4lqS+tYWorEQ6ayMW86gIoOsEF1eZnEpitkk0d7eSGx2nLSrmxqHitfvLxmA8ft3yek2
+      4pEFGtu+RXhhmsXFBRSrjLW6i9zqErH4Kn29Xdz+8+fk02s46lpxbbi6prMciuEwFxmbXSY4
+      M042n0fLpMm667HnYlRU1ZFWzZjzKQr5FMuLS6gWCyazG0sxRSGfJhyJ4/DXYJNLHxjE4nFq
+      3T5qj/SQCs4TCgfR5Uq0YppcKkFsNU11bTVfZxDAaiKDWkyQ10zIJjMzU+Nk0zl81T7u3H5A
+      96FaFmZCJAtWjnTUMBGI0uHVWVJdVDi+FNJ8ioLiIxacxWLKMzq2QDGfp7WlkYbOQ2TjUVoa
+      awkEZ5meiZDN58kkV2jt6Nq7sUApzcqr3z5LZ70HpaIGv8eOVc9xb3gMs6+BCkXH5/Xi8VWg
+      2B3YLQqxpUlWc2CzKVT6vDicLnRNw2yx4bQpm76O1aJQyGXIF4p4KmupcCqoqord5SUdnGA8
+      EGJlLY/TpuBwOrbss2QyYQJyuTwOtxe7TcHpcJOKzzE5F8Jic2A1a2i6hNfrwe31YVNsOCrr
+      WZ29R2g1y1afg7buXg53t1JZXY/HbkHVNFweH4rdidep4HI6cSkSg/cfUVVXheLyYNt0nh4T
+      tV4rY9MLOF1u6mrrsNpceHw+GmsqsTld2O12KrxunE4HmqqhOFzYbDZ8XjdOl5O62kqWEwW8
+      tq3v3ttsNhw+KyO3R8gXi9gcbmxWMw6HkyqvlazkwPI1z/NtNhuVdjNKRT1Op5P6mipsThf5
+      bIHenhai8RxOTyXWYoSR6SWcpLkfSFDt+soeymzB4XRT57GhOaqp8ztw+7wodgujw6O4vD5s
+      djsVFdX4XFa8Xh/+mnpcNsveXAUqJTg7wUIsR29fL3bLi3HPQNc0xu/fQbVXc7irlTLnoto3
+      luYeYa1soNJl23Yb01Pj1LV2Yd/k0HS/eq4BEITnbecvygr7TJ77t4fQXFXUOooEwmn6+o9i
+      kw/IrqtML8Zxh1CGNFZ3C73dLSRyOgNH2hkfm3jendo3xB7AAGYnhslLXagry9yYC9Bx5KXn
+      3aV9QwTgwDPR1Xuc9vZKpmc02toUItksur4+y7TRiZNgwdD+P3AJiaXA/HJsAAAAAElFTkSu
+      QmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
