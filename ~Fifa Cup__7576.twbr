@@ -288,6 +288,9 @@
       <column caption='Games Played' datatype='integer' name='[Calculation_1749648513370161152]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='COUNT([Team])' />
       </column>
+      <column caption='Performance' datatype='real' name='[Calculation_533113664321396736]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Team G]) / COUNT([Game #])' />
+      </column>
       <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
       <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
       <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
@@ -580,9 +583,41 @@
       </table>
       <simple-id uuid='{E71F544E-C933-4F72-8574-B00DBB81B7C3}' />
     </worksheet>
+    <worksheet name='Performance'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='World Cup - Tableau format (world_cup_results)' name='federated.06q6gun0nzzv3j14x28f61ivhx5w' />
+          </datasources>
+          <datasource-dependencies datasource='federated.06q6gun0nzzv3j14x28f61ivhx5w'>
+            <column caption='Performance' datatype='real' name='[Calculation_533113664321396736]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Team G]) / COUNT([Game #])' />
+            </column>
+            <column datatype='integer' name='[Game #]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Team G]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Team]' role='dimension' type='nominal' />
+            <column-instance column='[Team]' derivation='None' name='[none:Team:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_533113664321396736]' derivation='User' name='[usr:Calculation_533113664321396736:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</rows>
+        <cols>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[usr:Calculation_533113664321396736:qk]</cols>
+      </table>
+      <simple-id uuid='{7095A3B1-6FE1-4E2B-B581-E47EA86081E3}' />
+    </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Games Played'>
+    <window class='worksheet' name='Games Played'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -604,6 +639,29 @@
         </edge>
       </cards>
       <simple-id uuid='{64D034B3-EE24-4AA7-9BA5-540E28949F18}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Performance'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+          <strip size='160'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E6F756FB-FE9A-4AFF-B410-7D38C4777B7F}' />
     </window>
   </windows>
 </workbook>
