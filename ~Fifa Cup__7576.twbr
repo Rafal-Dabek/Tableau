@@ -611,9 +611,6 @@
             <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
             <column-instance column='[Team]' derivation='None' name='[none:Team:nk]' pivot='key' type='nominal' />
             <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_533113664321396736]' derivation='User' name='[rank:usr:Calculation_533113664321396736:qk]' pivot='key' type='quantitative'>
-              <table-calc ordering-type='Columns' rank-options='Competition,Descending' type='Rank' />
-            </column-instance>
             <column-instance column='[Calculation_533113664321396736]' derivation='User' name='[usr:Calculation_533113664321396736:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_533113664330735617]' derivation='User' name='[usr:Calculation_533113664330735617:ok]' pivot='key' type='ordinal'>
               <table-calc ordering-type='Columns' />
@@ -626,16 +623,16 @@
               </groupfilter>
             </groupfilter>
           </filter>
-          <filter class='quantitative' column='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Year:qk]' included-values='in-range'>
-            <min>1992</min>
+          <filter class='quantitative' column='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Year:qk]' context='true' included-values='in-range'>
+            <min>2000</min>
             <max>2014</max>
           </filter>
           <shelf-sorts>
             <shelf-sort-v2 dimension-to-sort='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[usr:Calculation_533113664321396736:qk]' shelf='rows' />
           </shelf-sorts>
           <slices>
-            <column>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</column>
             <column>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Year:qk]</column>
+            <column>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -655,7 +652,7 @@
           </pane>
         </panes>
         <rows>([federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk] / [federated.06q6gun0nzzv3j14x28f61ivhx5w].[usr:Calculation_533113664330735617:ok])</rows>
-        <cols>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[rank:usr:Calculation_533113664321396736:qk]</cols>
+        <cols>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[usr:Calculation_533113664321396736:qk]</cols>
       </table>
       <simple-id uuid='{7095A3B1-6FE1-4E2B-B581-E47EA86081E3}' />
     </worksheet>
