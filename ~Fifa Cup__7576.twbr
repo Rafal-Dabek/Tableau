@@ -4,6 +4,8 @@
 <workbook original-version='18.1' source-build='2024.1.3 (20241.24.0515.0324)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
     <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
@@ -290,6 +292,11 @@
       </column>
       <column caption='Performance' datatype='real' name='[Calculation_533113664321396736]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='SUM([Team G]) / COUNT([Game #])' />
+      </column>
+      <column caption='Rank' datatype='integer' name='[Calculation_533113664330735617]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='RANK([Calculation_533113664321396736],&apos;desc&apos;)'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
       </column>
       <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
       <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
@@ -593,12 +600,43 @@
             <column caption='Performance' datatype='real' name='[Calculation_533113664321396736]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='SUM([Team G]) / COUNT([Game #])' />
             </column>
+            <column caption='Rank' datatype='integer' name='[Calculation_533113664330735617]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='RANK([Calculation_533113664321396736],&apos;desc&apos;)'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
             <column datatype='integer' name='[Game #]' role='measure' type='quantitative' />
             <column datatype='integer' name='[Team G]' role='measure' type='quantitative' />
             <column datatype='string' name='[Team]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
             <column-instance column='[Team]' derivation='None' name='[none:Team:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_533113664321396736]' derivation='User' name='[rank:usr:Calculation_533113664321396736:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' rank-options='Competition,Descending' type='Rank' />
+            </column-instance>
             <column-instance column='[Calculation_533113664321396736]' derivation='User' name='[usr:Calculation_533113664321396736:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_533113664330735617]' derivation='User' name='[usr:Calculation_533113664330735617:ok]' pivot='key' type='ordinal'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]'>
+            <groupfilter count='20' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='[Calculation_533113664321396736]' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:Team:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Year:qk]' included-values='in-range'>
+            <min>1992</min>
+            <max>2014</max>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[usr:Calculation_533113664321396736:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</column>
+            <column>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Year:qk]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style />
@@ -608,10 +646,16 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
-        <rows>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</rows>
-        <cols>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[usr:Calculation_533113664321396736:qk]</cols>
+        <rows>([federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk] / [federated.06q6gun0nzzv3j14x28f61ivhx5w].[usr:Calculation_533113664330735617:ok])</rows>
+        <cols>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[rank:usr:Calculation_533113664321396736:qk]</cols>
       </table>
       <simple-id uuid='{7095A3B1-6FE1-4E2B-B581-E47EA86081E3}' />
     </worksheet>
@@ -660,7 +704,19 @@
             <card type='rows' />
           </strip>
         </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Year:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
       </cards>
+      <viewpoint>
+        <current-page>
+          <multibucket>
+            <bucket>1966</bucket>
+          </multibucket>
+        </current-page>
+      </viewpoint>
       <simple-id uuid='{E6F756FB-FE9A-4AFF-B410-7D38C4777B7F}' />
     </window>
   </windows>
