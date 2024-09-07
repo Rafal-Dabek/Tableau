@@ -490,6 +490,9 @@
       <column caption='Average Customer Sales' datatype='real' name='[Calculation_1786521736363675648]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{INCLUDE [Customer Name]: SUM([Sales])}' />
       </column>
+      <column aggregation='Attribute' caption='Yealy Catergory Sales' datatype='real' name='[Calculation_1786521736365195265]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{EXCLUDE [Sub-Category] : SUM([Sales])}' />
+      </column>
       <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
       <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
       <column datatype='string' name='[Postal Code]' role='dimension' semantic-role='[ZipCode].[Name]' type='nominal' />
@@ -942,9 +945,17 @@
             <datasource caption='Orders (Global Superstore)' name='federated.0dv0ugl1ac7f5d1empm3k1xjokz7' />
           </datasources>
           <datasource-dependencies datasource='federated.0dv0ugl1ac7f5d1empm3k1xjokz7'>
+            <column caption='Average Customer Sales' datatype='real' name='[Calculation_1786521736363675648]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{INCLUDE [Customer Name]: SUM([Sales])}' />
+            </column>
             <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Customer Name]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Segment]' role='dimension' type='nominal' />
             <column datatype='string' name='[Sub-Category]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1786521736363675648]' derivation='Avg' name='[avg:Calculation_1786521736363675648:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Segment]' derivation='None' name='[none:Segment:nk]' pivot='key' type='nominal' />
             <column-instance column='[Sub-Category]' derivation='None' name='[none:Sub-Category:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <aggregation value='true' />
@@ -956,12 +967,62 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[avg:Calculation_1786521736363675648:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
         <rows>([federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Category:nk] / [federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Sub-Category:nk])</rows>
-        <cols />
+        <cols>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Segment:nk]</cols>
       </table>
       <simple-id uuid='{E9520983-F0E9-4A6E-8478-9E33855C2831}' />
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Orders (Global Superstore)' name='federated.0dv0ugl1ac7f5d1empm3k1xjokz7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0dv0ugl1ac7f5d1empm3k1xjokz7'>
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Order Date]' role='dimension' type='ordinal' />
+            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Sub-Category]' role='dimension' type='nominal' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sub-Category]' derivation='None' name='[none:Sub-Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Order Date]' derivation='Year' name='[yr:Order Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Sales:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Category:nk] / [federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Sub-Category:nk])</rows>
+        <cols>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[yr:Order Date:ok]</cols>
+      </table>
+      <simple-id uuid='{174ECA74-A1B2-41E1-8805-5CA37906607C}' />
     </worksheet>
   </worksheets>
   <windows source-height='30'>
@@ -988,7 +1049,7 @@
       </cards>
       <simple-id uuid='{EED8724B-7543-406C-B6EE-A99047869946}' />
     </window>
-    <window class='worksheet' maximized='true' name='Average Customer Sales'>
+    <window class='worksheet' name='Average Customer Sales'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1010,6 +1071,29 @@
         </edge>
       </cards>
       <simple-id uuid='{A22E3469-6BDA-4EE7-9368-D7C9E16F4486}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5DE4DDC2-E9D9-47AE-8322-6DFF7FE4B1EE}' />
     </window>
   </windows>
 </workbook>
