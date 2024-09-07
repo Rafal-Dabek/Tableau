@@ -10,6 +10,7 @@
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <SheetIdentifierTracking />
+    <SortTagCleanup />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
   </document-format-change-manifest>
@@ -965,9 +966,6 @@
             <column caption='Overall Sales' datatype='real' name='[Calculation_1221601458021564423]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='{FIXED : SUM([Sales])}' />
             </column>
-            <column caption='Subcategory Percentage of Total' datatype='real' name='[Calculation_1221601458021765128]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='SUM([Sales])/SUM([Calculation_1221601458021564423])' />
-            </column>
             <column datatype='string' name='[Category]' role='dimension' type='nominal' />
             <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
             <column datatype='string' name='[Sub-Category]' role='dimension' type='nominal' />
@@ -976,27 +974,39 @@
             <column-instance column='[Calculation_1221601458021564423]' derivation='Sum' name='[sum:Calculation_1221601458021564423:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_1221601458019127302]' derivation='User' name='[usr:Calculation_1221601458019127302:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_1221601458021765128]' derivation='User' name='[usr:Calculation_1221601458021765128:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Sales:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1221601458019127302:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Calculation_1221601458021564423:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Sales:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1221601458019127302:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Calculation_1221601458021564423:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[:Measure Names]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='cell'>
             <format attr='text-format' field='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1221601458019127302:qk]' value='p0.00%' />
-            <format attr='text-format' field='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1221601458021765128:qk]' value='p0.00%' />
           </style-rule>
         </style>
         <panes>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
-            <mark class='Text' />
+            <mark class='Automatic' />
             <encodings>
-              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Sales:qk]' />
-              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1221601458019127302:qk]' />
-              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Calculation_1221601458021564423:qk]' />
-              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1221601458021765128:qk]' />
+              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[Multiple Values]' />
             </encodings>
             <style>
               <style-rule element='mark'>
@@ -1043,6 +1053,7 @@
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
+            <card type='measures' />
           </strip>
         </edge>
         <edge name='top'>
