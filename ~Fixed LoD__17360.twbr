@@ -487,7 +487,7 @@
       <column caption='Subcategory Sales' datatype='real' name='[Calculation_1221601458010152960]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{Fixed [Category]: SUM([Sales])}' />
       </column>
-      <column caption='Category sales' datatype='real' name='[Calculation_1221601458018910213]' role='measure' type='quantitative'>
+      <column caption='Category Sales' datatype='real' name='[Calculation_1221601458018910213]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{FIXED [Category]: SUM([Sales])}' />
       </column>
       <column caption='Percentage' datatype='real' name='[Calculation_1221601458019127302]' role='measure' type='quantitative'>
@@ -956,7 +956,7 @@
             <datasource caption='Orders (Global Superstore)' name='federated.0dv0ugl1ac7f5d1empm3k1xjokz7' />
           </datasources>
           <datasource-dependencies datasource='federated.0dv0ugl1ac7f5d1empm3k1xjokz7'>
-            <column caption='Category sales' datatype='real' name='[Calculation_1221601458018910213]' role='measure' type='quantitative'>
+            <column caption='Category Sales' datatype='real' name='[Calculation_1221601458018910213]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='{FIXED [Category]: SUM([Sales])}' />
             </column>
             <column caption='Percentage' datatype='real' name='[Calculation_1221601458019127302]' role='measure' type='quantitative'>
@@ -1007,7 +1007,7 @@
           </pane>
         </panes>
         <rows>([federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Category:nk] / [federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Sub-Category:nk])</rows>
-        <cols />
+        <cols>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[:Measure Names]</cols>
       </table>
       <simple-id uuid='{E668ACCF-6D20-489B-A1A8-9701CD6C2EA1}' />
     </worksheet>
