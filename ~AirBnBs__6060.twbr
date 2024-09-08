@@ -317,8 +317,11 @@
       <column caption='First Review' datatype='date' name='[Calculation_1636214099190378496]' role='dimension' type='ordinal'>
         <calculation class='tableau' formula='{FIXED [host_id]: MIN([last_review])}' />
       </column>
-      <column caption='Highest Price' datatype='integer' name='[Calculation_426434649293623296]' role='measure' type='quantitative'>
+      <column caption='Maximum Price' datatype='integer' name='[Calculation_426434649293623296]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{INCLUDE  [host_id]:MAX([price])}' />
+      </column>
+      <column caption='Max Price Difference' datatype='real' name='[Calculation_426434649295749121]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([Calculation_426434649293623296])-ATTR({EXCLUDE [neighbourhood]: AVG({INCLUDE [host_id]: MAX([price])})})' />
       </column>
       <column caption='Number of Listening per Host' datatype='integer' name='[Calculation_500181093099335680]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='{FIXED [host_id]: COUNT([name])}' />
@@ -992,36 +995,97 @@
         <view>
           <datasources>
             <datasource caption='listings' name='federated.0xvbtxm1oczi7k0zve9uo00apf80' />
+            <datasource name='Parameters' />
           </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Neighbourhood Group Parameter' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Staten Island&quot;'>
+              <calculation class='tableau' formula='&quot;Staten Island&quot;' />
+            </column>
+          </datasource-dependencies>
           <datasource-dependencies datasource='federated.0xvbtxm1oczi7k0zve9uo00apf80'>
-            <column caption='Highest Price' datatype='integer' name='[Calculation_426434649293623296]' role='measure' type='quantitative'>
+            <column caption='Maximum Price' datatype='integer' name='[Calculation_426434649293623296]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='{INCLUDE  [host_id]:MAX([price])}' />
             </column>
+            <column caption='Max Price Difference' datatype='real' name='[Calculation_426434649295749121]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='AVG([Calculation_426434649293623296])-ATTR({EXCLUDE [neighbourhood]: AVG({INCLUDE [host_id]: MAX([price])})})' />
+            </column>
+            <column caption='Number of Listening per Host' datatype='integer' name='[Calculation_500181093099335680]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='{FIXED [host_id]: COUNT([name])}' />
+            </column>
+            <column caption='Selected Price' datatype='integer' name='[Calculation_571675737201659904]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='If [neighbourhood_group] = [Parameters].[Parameter 1] THEN [price] ELSE 0 END' />
+            </column>
+            <column aggregation='Attribute' caption='Exclude: Selected Price' datatype='real' name='[Calculation_571675737203146754]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{EXCLUDE [neighbourhood_group]: AVG(IF [neighbourhood_group]=[Parameters].[Parameter 1] THEN [Calculation_571675737201659904] END) }' />
+            </column>
+            <column caption='Fixed : Selected Price' datatype='integer' name='[Calculation_571675737204064259]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{FIXED : SUM([Calculation_571675737201659904])}' />
+            </column>
+            <column caption='Difference' datatype='real' name='[Calculation_571675737205522436]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='AVG([price])- ATTR([Calculation_571675737203146754])' />
+            </column>
+            <_.fcp.ObjectModelTableType.false...column caption='listings.csv' datatype='integer' name='[__tableau_internal_object_id__].[listings.csv_59E942100E734F88B9366FEAA0FA5211]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[listings.csv_59E942100E734F88B9366FEAA0FA5211]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:listings.csv_59E942100E734F88B9366FEAA0FA5211:qk]' pivot='key' type='quantitative' />
+            <_.fcp.ObjectModelTableType.true...column caption='listings.csv' datatype='table' name='[__tableau_internal_object_id__].[listings.csv_59E942100E734F88B9366FEAA0FA5211]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_571675737203146754]' derivation='Attribute' name='[attr:Calculation_571675737203146754:qk]' pivot='key' type='quantitative' />
+            <column datatype='integer' name='[availability_365]' role='measure' type='quantitative' />
             <column-instance column='[Calculation_426434649293623296]' derivation='Avg' name='[avg:Calculation_426434649293623296:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[latitude]' derivation='Avg' name='[avg:latitude:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[longitude]' derivation='Avg' name='[avg:longitude:qk]' pivot='key' type='quantitative' />
+            <column datatype='integer' name='[calculated_host_listings_count]' role='measure' type='quantitative' />
             <column datatype='integer' name='[host_id]' role='dimension' type='ordinal' />
+            <column aggregation='Avg' datatype='real' name='[latitude]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+            <column aggregation='Avg' datatype='real' name='[longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+            <column datatype='integer' name='[minimum_nights]' role='measure' type='quantitative' />
+            <column datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column datatype='string' name='[neighbourhood]' role='dimension' type='nominal' />
             <column datatype='string' name='[neighbourhood_group]' role='dimension' type='nominal' />
+            <column-instance column='[neighbourhood]' derivation='None' name='[none:neighbourhood:nk]' pivot='key' type='nominal' />
             <column-instance column='[neighbourhood_group]' derivation='None' name='[none:neighbourhood_group:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[number_of_reviews]' role='measure' type='quantitative' />
             <column datatype='integer' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_426434649293623296]' derivation='Sum' name='[sum:Calculation_426434649293623296:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_500181093099335680]' derivation='Sum' name='[sum:Calculation_500181093099335680:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_571675737201659904]' derivation='Sum' name='[sum:Calculation_571675737201659904:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_571675737204064259]' derivation='Sum' name='[sum:Calculation_571675737204064259:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[availability_365]' derivation='Sum' name='[sum:availability_365:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[calculated_host_listings_count]' derivation='Sum' name='[sum:calculated_host_listings_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[minimum_nights]' derivation='Sum' name='[sum:minimum_nights:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[number_of_reviews]' derivation='Sum' name='[sum:number_of_reviews:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_426434649295749121]' derivation='User' name='[usr:Calculation_426434649295749121:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_571675737205522436]' derivation='User' name='[usr:Calculation_571675737205522436:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xvbtxm1oczi7k0zve9uo00apf80].[:Measure Names]'>
+            <groupfilter function='level-members' level='[:Measure Names]' />
+          </filter>
+          <slices>
+            <column>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[:Measure Names]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style />
         <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
-            <mark class='Bar' />
+            <mark class='Text' />
+            <encodings>
+              <text column='[federated.0xvbtxm1oczi7k0zve9uo00apf80].[avg:Calculation_426434649293623296:qk]' />
+              <text column='[federated.0xvbtxm1oczi7k0zve9uo00apf80].[usr:Calculation_426434649295749121:qk]' />
+              <lod column='[federated.0xvbtxm1oczi7k0zve9uo00apf80].[Multiple Values]' />
+            </encodings>
             <style>
               <style-rule element='mark'>
                 <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-labels-show' value='true' />
               </style-rule>
             </style>
           </pane>
         </panes>
-        <rows>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[avg:Calculation_426434649293623296:qk]</rows>
-        <cols>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[none:neighbourhood_group:nk]</cols>
+        <rows>([federated.0xvbtxm1oczi7k0zve9uo00apf80].[none:neighbourhood_group:nk] / [federated.0xvbtxm1oczi7k0zve9uo00apf80].[none:neighbourhood:nk])</rows>
+        <cols>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[:Measure Names]</cols>
       </table>
       <simple-id uuid='{E69D8323-EBA9-47F0-B87B-6A4613FF5A68}' />
     </worksheet>
@@ -1213,6 +1277,7 @@
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
+            <card type='measures' />
           </strip>
         </edge>
         <edge name='top'>
