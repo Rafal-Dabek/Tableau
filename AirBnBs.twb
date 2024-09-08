@@ -25,6 +25,19 @@
     </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
   </_.fcp.AnimationOnByDefault.false...style>
   <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Neighbourhood Group Parameter' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Staten Island&quot;'>
+        <calculation class='tableau' formula='&quot;Staten Island&quot;' />
+        <members>
+          <member value='&quot;Bronx&quot;' />
+          <member value='&quot;Brooklyn&quot;' />
+          <member value='&quot;Manhattan&quot;' />
+          <member value='&quot;Queens&quot;' />
+          <member value='&quot;Staten Island&quot;' />
+        </members>
+      </column>
+    </datasource>
     <datasource caption='listings' inline='true' name='federated.0xvbtxm1oczi7k0zve9uo00apf80' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -301,6 +314,9 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='First Review' datatype='date' name='[Calculation_1636214099190378496]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='{FIXED [host_id]: MIN([last_review])}' />
+      </column>
       <column caption='Number of Listening per Host' datatype='integer' name='[Calculation_500181093099335680]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='{FIXED [host_id]: COUNT([name])}' />
       </column>
@@ -327,7 +343,7 @@
       <column datatype='real' name='[reviews_per_month]' role='dimension' type='quantitative' />
       <column-instance column='[Calculation_571675737202040833]' derivation='None' name='[none:Calculation_571675737202040833:nk]' pivot='key' type='nominal' />
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
-        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_0axa6cr13j1v5v176lz69047ok09.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/03/2024 10:34:30 AM' username='tableau_internal_user'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_0qy8cje14rasrk19kbrdm05ar7lz.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/08/2024 06:23:14 PM' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
           <metadata-records>
@@ -617,19 +633,6 @@
         </objects>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
-    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
-      <aliases enabled='yes' />
-      <column caption='Neighbourhood Group Parameter' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Staten Island&quot;'>
-        <calculation class='tableau' formula='&quot;Staten Island&quot;' />
-        <members>
-          <member value='&quot;Bronx&quot;' />
-          <member value='&quot;Brooklyn&quot;' />
-          <member value='&quot;Manhattan&quot;' />
-          <member value='&quot;Queens&quot;' />
-          <member value='&quot;Staten Island&quot;' />
-        </members>
-      </column>
-    </datasource>
   </datasources>
   <mapsources>
     <mapsource name='Tableau' />
@@ -703,6 +706,49 @@
         <cols>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[none:neighbourhood_group:nk]</cols>
       </table>
       <simple-id uuid='{EFBAAE86-852C-476E-80B1-20EB749B8ADB}' />
+    </worksheet>
+    <worksheet name='Host Aquisition Rate'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='listings' name='federated.0xvbtxm1oczi7k0zve9uo00apf80' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xvbtxm1oczi7k0zve9uo00apf80'>
+            <column caption='First Review' datatype='date' name='[Calculation_1636214099190378496]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{FIXED [host_id]: MIN([last_review])}' />
+            </column>
+            <column-instance column='[host_id]' derivation='CountD' name='[cum:ctd:host_id:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+            </column-instance>
+            <column datatype='integer' name='[host_id]' role='dimension' type='ordinal' />
+            <column datatype='date' name='[last_review]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1636214099190378496]' derivation='Year' name='[yr:Calculation_1636214099190378496:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1636214099190378496]' derivation='Year' name='[yr:Calculation_1636214099190378496:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xvbtxm1oczi7k0zve9uo00apf80].[yr:Calculation_1636214099190378496:ok]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[yr:Calculation_1636214099190378496:ok]' />
+              <groupfilter function='member' level='[yr:Calculation_1636214099190378496:ok]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[yr:Calculation_1636214099190378496:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[cum:ctd:host_id:qk]</rows>
+        <cols>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[yr:Calculation_1636214099190378496:qk]</cols>
+      </table>
+      <simple-id uuid='{2AB326CB-19BC-4A9D-BB36-16F22842A027}' />
     </worksheet>
     <worksheet name='Hosting Frequency'>
       <table>
@@ -1095,7 +1141,7 @@
       </viewpoint>
       <simple-id uuid='{B74D3DE1-D616-40B9-A620-566E1C297BAE}' />
     </window>
-    <window class='worksheet' maximized='true' name='Comparative Analysis'>
+    <window class='worksheet' name='Comparative Analysis'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1131,6 +1177,37 @@
         </highlight>
       </viewpoint>
       <simple-id uuid='{049748D9-8CB4-44D5-84E9-60A212D2541D}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Host Aquisition Rate'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[none:host_id:ok]</field>
+            <field>[federated.0xvbtxm1oczi7k0zve9uo00apf80].[yr:Calculation_1636214099190378496:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{1EBA3530-4F77-4BA3-9525-60DD307EAB25}' />
     </window>
   </windows>
   <thumbnails>
@@ -1222,6 +1299,96 @@
       tpPI+CiaNV/nJhqhljZ8sQSDyWF8RcW45wY52t7BbAS2rb990GuahmVZaJqGrtuzYnquc2j2
       HKQq79MMAhDh2KHTvPrD79PfeZK8jUVs8M3HE+sOCorLKCiGsqJCtLwC9LKNFIxM4CsqwyOz
       Ygkb/T/oITCtLCsvPAAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Host Aquisition Rate' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAASFElEQVR4nO3dWXMb2XnG8X93YwdIgOC+iqS4SNQymi3xOHORsVOu3KR8kRuXP818klSq
+      cpNKykmqknLZnsQex/GknLG1UJQokgIpLiBIAsS+NnrJBTWc0YwAiRTZItjvr0o1JNEE3gH7
+      QZ8+5/RpxbZtGyFcSn3bBQjxNp1bAGzbRg4u4qI71yOAZVnn+fRCvDFpAglXkwAIV5MACFeT
+      AAhXkwAIV/Oc5pf2txNsJg8Ym5lnb30Vb3SI3i4/3UGVkhViuLfrrOsU4lwopxkJblby3F9a
+      Jh7tIzA0TC21Q6VeoGaG+PD9W2CZ2LaNaZqoqhxkxMV1qiOAjpcbc6M8SWQxihWaTYNwtJ9w
+      o0Kl3qQ76MW2bRRFQdO0s65ZiDNzqgA0ylmepYosvHOLg61VeiamCHlsQgEfhWoDgt6zrlOI
+      c3GqJtDrsG0by7LkCCAuNGmgC1eTAAhXkwAIV5MACFeTAAhXkwAIV5MACFeTAAhXkwAIV5MA
+      CFeTAAhXkwAIV5MACFeTAAhXkwAIV5MACFeTAAhXkwAIV5MACFeTAAhXkwAIVzvVsijpnXU2
+      kgeMz10jufyYYP8ovV0BoiGNQtPPkKwMJzrEqQLQNzqFqkGjUiBbs7jVEyO7s8qWGeD9925i
+      mubxsihykwxxkZ0qAJnUFpa/n4GIh+/F+ni6/IRwTw/RRpVqwyTi/3otIFkXSFxkpwpAU6+T
+      TD7BvHKV0sE2feOTxEJewkEfhUoNJdB1vDSioihnXbMQZ0ZWhhOuJr1AwtUkAMLVJADC1SQA
+      wtUkAMLVJADC1SQAwtUkAMLVWo4Em4aBYZoAqJqG13OqQWMhLrSWe/X+5io//4//pHd2mkYz
+      zE9+/ImTdQnhiJZNoJGrC/z1jz7CqDfp7etxsiYhHNPyCFAv5Sg1ffR0dzEgARCXVMsA+IIR
+      xicn6RseIbOVogqEHCxMCCe0bAKpHi+R7ij9/f3UDzPUnaxKCIe07QZtNnQs20bz+5FJzeIy
+      atkE0msF/vUf/pn+m/PUdA+3naxKCIe0DIDm8XN1fhZvdzfRqQknaxLCMS2bQJo3gNpscP/x
+      IxbvLTpZkxCOaTu8O/PONUqre4xPjDtVjxCOansSvLOyQrVRZunxhlP1COGotgGI9sepFUr0
+      9MWdqkcIR7VtAhm6BSr4vS92gmZTmyS297kye439jVV8PcP0hH10BzUKTS+DcVkZTnSGlgE4
+      2HrKH/54j9DkApFQ8IXHov2jzKgWB8ldopNz1PeSHJTrbBsebr9zE8uysG37eIU4IS6qlusC
+      NWoVKrUGAF5/kK7w1yE43NumoXbRo1XZ1f3oh3uoPg9mo8GVuRuEfOrxukCqKpcciIur5REg
+      n8lhAP3jY/i+9VitWiZ1uIcyNYed3yLSP0aXXyES8pGvVAj7uwFQFEUCIC60lkeAnZX7/Ozf
+      fkXv9BST07f4+P1rJ3piWRlOdIKWH89j83f46U/+hpDmIRbrdrImIRzTtn2SXN9k4YMPeLb2
+      1Kl6hHBU28VxG5Uc9xefcGX+FkPxyImeWJpAohO0PALYlsXW0x3m371NZnfXyZqEcEzLXqBG
+      Ncvnn31GdHOG2bl3nKxJCMe0PAIEIn387U9/TFBRaOq6kzUJ4Zi2UyH2NrZ57y9/xEBQ2vHi
+      cmrbC9QzPMDDLz7n4eq2Q+UI4ay2AVAUFcXS2Xi241Q9Qjjq1esdqhphf/CVmwnRidoeAbxe
+      lXK5zuDwgFP1COGo9leEPV3n6s2b7GxsOlWPEI5qfxLcP0i9XGJwsN+peoRwVNtzAL1eIp2u
+      4QvJza7F5dR2LpBt21QrFYLhMOoJ7/guc4FEJ2g7F+jp4hJNj8LjR2tO1iSEY14xF+hXRDdn
+      ZS6QuLRaBiAQ6eOTH37CwM2bJB7KEUBcTm17gUIR+Ozff05VkfuDicupbQAatSaoCl5NLmwX
+      l1PbPbuUzeCP9n5nXSAhLou29wizQ3H0nRT52IsDYdn9JIlUng/fmeJ3v/mS+PgkYS90+6Hu
+      izPSKyvDic7winuETTM0dRXwvvBYfHCUfEUHvYGpefB4NCq5JLtGkI8+uHK8IpxpmliWdd7/
+      D0KcWutu0FqOf/y7v6f76hRXpm8z2P/1nSIPdtZJJBKonuvEIj7y+QIjfaOMhTR203lGB2LY
+      to2iKDIQJi60tiPBz5YWydTKNLx9/MWduRM9sYwEi07Q9iS4kt/n/kaKZiHnVD1COKplAKr5
+      NFX8dFlN7IDcIVhcTi2bQLZlktxMUDK8zE5fwXPCsQBpAolO0HKvXvnytzzaydMo7PCr/77r
+      ZE1COKZlL1AmlSHTPKSISdWMOVmTEI5p3QT61o8VuR5AXEItjwAPf/85a7t55t67RV+0l+Fv
+      jAMIcVm0PAe4/sGHDESDZFKp41slCXHZtAyANxBhKB6kUCyxlpCV4cTl1LZv0+PzogBe/7fv
+      EibE5fDKi+L1ho7X75OL4sWl1PZSr/X7X/CH1V0mZk5+kzwhOkHbJlCzXiUS7yfaJVMhxOXU
+      9gjQ1C0mpqcZ6pGBMHE5tT0CDE5Nk9tKsJfOO1WPEI5qGwBV0/BqNquJZw6VI4Sz2gbA0HUq
+      tQa9cRkFFpdTywBsPVlEifZTOjzA6/c7WZMQjmkZgPxBil//8hfM/fkPqWT2naxJCMe0HAiz
+      zCalSp1I2E+1ZtAVOVlXqAyEiU7Q8gigal5oFPnTn+6z9jRB3Wg5YCxEx2p7Ery++JCuwQGW
+      7/6ee0tf3ynSMpvkCiXAJpfeo1ht0Gg0sEyDWkNuqi06R9uBsOmb83z22y+Zuvk+Y8NfD4YV
+      czm293NE1Dib6SJ2MkNXdwi/rRMenCQo58yiQ7QNQDKxjhoO4wvFGR/8ernDWN8A2WKFRkVn
+      YGyE+m6SYiHNftPPR9MBWRlOdIz2655bOvWG8Z2d+GBnnbW1NTw3bpB6tIi3q4/e+DBTIZXk
+      QZ7xQVkZTnSGlr1Aeq1MOpOlXK0RjvUxNth7oieWXiDRCVqeBCuqitmokdrdJZcvO1mTEI5p
+      fUmkP0R2M0Fd86F55FNcXE5tu0GjfVFKh1nKlbpT9QjhqLYBsGyVoya8DIKJy6n96tC5QxR/
+      mIBcFC8uqbYBGLo6T8ynoHCyC+KF6BRtAxDrH+X2jTn2kkmn6hHCUW0HwrJ7WyyubhIbnnaq
+      HiEc1TIAm4/+j/99tElXOESlKr1A4nJq2QRKru8yPjPB2nKC0eH+VpsJ0dFaToUoZg84yBYB
+      CHf3MjxwsuuCZSqE6ARtl0Z8ExIA0QlOduMvIS4ZCYBwNQmAcDUJgHA1CYBwNQmAcDUJgHA1
+      CYBwNQmAcLX2y6K8ksHS3fsoXf2M9EWJBDSKukJvNHI21Qlxzt4sAHoJXYtxbXyY5GaCVNNk
+      an4B27aPp0IoJ7y7pBBOeqMA2EqQWASWFh8RDinUG6CqHAfgq39CXFRvFADTsigXC0Ti/fRH
+      Q0TDXrK5EkN90eMdXybDiYtMZoMKV5NeIOFqEgDhahIA4WoSAOFqEgDhahIA4WoSAOFqEgDh
+      ahIA4WoSAOFqEgDhahIA4WoSAOFqb3hFmBCdybJtnqXyEgDhDnXd4Nlenq39AitbGZ4mc5Rr
+      ulwPIC4f3TDZz5bZSOVJ7OZY2cqQTJeIRQJMj8S4OhpnZjTO5FBMAiA6m2FaZIs1NlI51nay
+      rCWz7BwUCAV89EdDXJvoY3I4xvRID90hPz7vi/ujBEB0DMuyyZZqpA5LrGwdsrGX51kqj2Xb
+      9HYHuTIUY368l/nxXqKRAAHfq1v4EgBxIdm2Tamqc5CrsJHKsbJ9yPpujkq9SSjgZX68l9mx
+      OFdH4/R2B4kEfadagUQCIN4627ap6waZQpVnewUePzsgkcxRqul4VJWpkRgzz9vtQ/EI0bAf
+      TTubHnwJgHCMbdtYto1p2uTLddZ3cyR2s6xuH5It1jBMm+HeCPMTfVwd6eHKUJTe7hCqen5r
+      S71ZAGyL9ZXH+OJjdPkVwgEvpYZNT3dYAuCwozWYXv6Y9Y0HvtrOer4z8vzro53z6PGGbmBa
+      Nk3DpNE0sSybetNAb5oYpoVhWjSa5vPvTZqGRUM3aJoWpmUff900THTj6Hca+tG2pmVjGBaF
+      Sp2BnggLk/3MjsWZGIwy2BPG63F2f3mjANSzu+zUfejZfTx+H3azwfjMdYLeo8OTYRhomnbi
+      xbHOcjW55c2jPt+vWJZF07Be63d1w3xh52nFtqHRNF65nWFamOZ3X1s3LCzru69jmBam9bLt
+      ze9sb9tH27/8dc3jr03LxrJsjOc7qG3bxzu1aR2Fwu/V0FQVr6bi93lQVYWAV8Pn1fBoKh5N
+      w/+N770eFa9Hw6sd/dfv8xz9TFPxeY628fs833hcYygeIej3vvI9e5mT7E+v2pfebGGspoU/
+      6MfWVOrVIlVdZdqjYlnW0RtrGDSbzbcagHS+TOqwdPy9qiqv/Snj86h41ddra0aCwVe/2ZqK
+      5yVtV69HQ3vJ73o8KtpLXt/nUb/TLFAUBY/28tf3fuM1NU1FVY5+pmkKmqLg1dTn74uK9o3n
+      Pc1n42v/7WyTet189Xbf/rUzrunNmkCWzoN79/H3jNAT9hGLeDmsKIwMxKQJJDqCnAQLV5PZ
+      oMLVJADC1SQAwtUkAMLVJADC1c71ghjTNN/6HWIsy0J9zb78y16HbdsX4pZVF+W9gHMOgKZp
+      b70b1DAMPJ63f+HbRajjq5H5tx2Ci/BeWM9H2M91HADOdlT3tHW87RouSh3yN3mxBjjHAAjR
+      CbRPP/300/N6cqOa50/3H5KrGOj5FEtrW8S6Qzx5/Jiu3iGSTx+yupFiYHjwpXNhTqxZ496D
+      B6TSRRQ9z+LyUyLdXaw/foAnNkphL8HOYYW+nuibv1Yb2b0tlh4tY3lDbD5ZZK/QwGtVSeyk
+      6e3ys/jgAalcleGB3vMrwjJYXnpAYnOfsN/k3r2H+KK9pJ7cpR4YpJ7eZGl5BU8kTiRwuklp
+      r6OSP+DB4hJVQ+Nw5ymJZJbuADxc22RksJ9mJcMfHj5jfKT/3GoA2Fhd4snqFuGwl8X7DzA8
+      IYqp9fPtBdKCUW5fn8HnVSmbKnem+skaXkYHYxhWA50o1650k87pZ/OCngC3blwn5PeSrZm8
+      vzBNrlRnarSPhglDo1fwKa83E/RN9AyOMz05ilJM4h+9SdSjE+obI+xX0HwhbixcI+g95zaw
+      ojG/cIOesJ9ktsxH3/8eudQOs9OjNEybWDyOR1XOvZMiFO3n+uwUWrOMHRliOqZSDw4Q7wpg
+      2zaJrQMi/nMtAYDJ2QUG4xEODzNcf/fPqBfSTFyZON8AWPU8G/s1ZifHMHWdYqWB3/PVS2o0
+      9RrVcg2f/4x2BrPG02f7zM5OozSblKs1NM/5fbq1cri3g+HpZnRsCL1cpN4w+GqiptmospE8
+      ZG528nyLsE3Wnz5jcv4aftOgUi1hKYHjhw3Fx7XpYbL58rmWUS2kyVRganIUvValVDMIPP9z
+      W7UMu3tZEmsb1FpM5T4rm4k1BiZn6PZ7qFZKGNZR58y5fgwZhkkxm2TZanJldICtdI1Jpcby
+      TgZfWWV8qIv9ks1c+Gx6iizTolI6ZOlxk6sTIzxLHjIzFWN5MYMdNjH8Bplsme74AH3R4Jm8
+      5svraLK1vkpzYoYeLYsyOEEumSCTPkT1+Cjn0iwuG9xZmDm3Gmzbol4vsbS4yPWFWdZW1rl+
+      c46H9x5Q0wqEB7pIpotcW7h+bjUAmIZBOpXEsMYYjmoUzAGsXJJMOoPtCfODTz4ml88TPKNL
+      HFtp6jWWFx8wt3Cd3Y11Jq7OsLa2IifBwt3e/giREG+RBEC4mgRAuJoEQHQIm5VHD9EtkydP
+      1nidE1fb0vmf//otddvm7u9/zS8//4JCsYj+jR6ntz9JRojXotAX1PmXf/oZ03c+5tEfv6AR
+      GGAg0GBtt8iNmVE2U4dcv3mbwvYyq7tlJnsb/O7uNh/8ALZ30nz4g79ib3sdXyBKupAnHvLJ
+      EUB0jvjUuzRrNd6bsPnFbx6wvbHOytMEy0tf8nhpiaIao8tncvfhFtORInvNbm6/9x4BRcFo
+      1DjIZEmn99nbXKOidFPN7csRQHQORVF4584d1OAAH96ewBMfwtvIMH31GiPjYwQHBkDxMjvZ
+      w+P9Mh9/f5TNwNF6TXO33mXh+iybHh3b1PD3D2KkSzIOINxNmkDC1f4f2AH47FOb5cUAAAAA
+      SUVORK5CYII=
     </thumbnail>
     <thumbnail height='192' name='Hosting Frequency' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
