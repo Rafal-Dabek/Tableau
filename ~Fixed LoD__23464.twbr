@@ -1130,6 +1130,9 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1651132272908939266:qk]' />
+            </encodings>
           </pane>
         </panes>
         <rows>([federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Sales:qk] + ([federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[sum:Calculation_1651132272919818246:qk] + [federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1651132272908939266:qk]))</rows>
@@ -1345,6 +1348,7 @@
           <strip size='160'>
             <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
             <card pane-specification-id='3' param='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Calculation_1651132272908378113:nk]' type='color' />
+            <card pane-specification-id='7' param='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[usr:Calculation_1651132272908939266:qk]' type='color' />
           </strip>
         </edge>
       </cards>
