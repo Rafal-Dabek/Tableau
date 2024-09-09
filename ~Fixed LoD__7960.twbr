@@ -573,12 +573,12 @@
         <calculation class='tableau' formula='SUM([Sales])/ATTR([Calculation_1786521736365195265])' />
       </column>
       <column caption='Duration' datatype='integer' name='[Calculation_560135263446294530]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='DATEDIFF(&apos;month&apos;,[Calculation_1585830078361296896],[First Purchase (copy)_560135263445987329])' />
+        <calculation class='tableau' formula='DATEDIFF(&apos;year&apos;,[Calculation_1585830078361296896],[First Purchase (copy)_560135263445987329])' />
       </column>
       <column caption='Number of Purchases per Customer' datatype='real' name='[Calculation_560135263446659075]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='[Calculation_1047931397794607104]/[Calculation_560135263446294530]' />
       </column>
-      <column caption='Monthly Purchase Frequency' datatype='real' name='[Calculation_560135263447121924]' role='measure' type='quantitative'>
+      <column caption='Yearly Purchase Frequency' datatype='real' name='[Calculation_560135263447121924]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{fixed [Customer ID]: COUNTD([Order ID])}/[Calculation_560135263446294530]' />
       </column>
       <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
@@ -1279,17 +1279,14 @@
             <datasource caption='Orders (Global Superstore)' name='federated.0dv0ugl1ac7f5d1empm3k1xjokz7' />
           </datasources>
           <datasource-dependencies datasource='federated.0dv0ugl1ac7f5d1empm3k1xjokz7'>
-            <column aggregation='Sum' caption='Number of Orders per Customer ' datatype='integer' name='[Calculation_1047931397794607104]' role='dimension' type='ordinal'>
-              <calculation class='tableau' formula='{FIXED  [Customer ID] : COUNTD([Order ID])}' />
-            </column>
             <column caption='First Purchase' datatype='date' name='[Calculation_1585830078361296896]' role='dimension' type='ordinal'>
               <calculation class='tableau' formula='{FIXED [Customer ID]: MIN([Order Date])}' />
             </column>
             <column caption='Duration' datatype='integer' name='[Calculation_560135263446294530]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='DATEDIFF(&apos;month&apos;,[Calculation_1585830078361296896],[First Purchase (copy)_560135263445987329])' />
+              <calculation class='tableau' formula='DATEDIFF(&apos;year&apos;,[Calculation_1585830078361296896],[First Purchase (copy)_560135263445987329])' />
             </column>
-            <column caption='Number of Purchases per Customer' datatype='real' name='[Calculation_560135263446659075]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[Calculation_1047931397794607104]/[Calculation_560135263446294530]' />
+            <column caption='Yearly Purchase Frequency' datatype='real' name='[Calculation_560135263447121924]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{fixed [Customer ID]: COUNTD([Order ID])}/[Calculation_560135263446294530]' />
             </column>
             <column datatype='string' name='[Customer ID]' role='dimension' type='nominal' />
             <column caption='Latest Purchase' datatype='date' name='[First Purchase (copy)_560135263445987329]' role='dimension' type='ordinal'>
@@ -1297,8 +1294,8 @@
             </column>
             <column datatype='date' name='[Order Date]' role='dimension' type='ordinal' />
             <column datatype='string' name='[Order ID]' role='dimension' type='nominal' />
-            <column-instance column='[Calculation_560135263446659075]' derivation='Attribute' name='[attr:Calculation_560135263446659075:ok]' pivot='key' type='ordinal' />
             <column-instance column='[Customer ID]' derivation='CountD' name='[ctd:Customer ID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_560135263447121924]' derivation='None' name='[none:Calculation_560135263447121924:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -1308,20 +1305,17 @@
             <view>
               <breakdown value='auto' />
             </view>
-            <mark class='Bar' />
-            <encodings>
-              <text column='[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[attr:Calculation_560135263446659075:ok]' />
-            </encodings>
+            <mark class='Automatic' />
             <style>
               <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
               </style-rule>
             </style>
           </pane>
         </panes>
         <rows>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[ctd:Customer ID:qk]</rows>
-        <cols />
+        <cols>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Calculation_560135263447121924:qk]</cols>
       </table>
       <simple-id uuid='{F7AF07C8-0624-4D4B-AFBC-96328B66DFBE}' />
     </worksheet>
