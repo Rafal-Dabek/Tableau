@@ -582,7 +582,7 @@
         <calculation class='tableau' formula='ROUND({fixed [Customer ID]: COUNTD([Order ID])}/[Calculation_560135263446294530])' />
       </column>
       <column caption='Category Average' datatype='real' name='[Calculation_560135263450603526]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='{FIXED [Segment], [Category]:SUM([Sales])}' />
+        <calculation class='tableau' formula='{INCLUDE  [Segment]:SUM([Sales])}' />
       </column>
       <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
       <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
@@ -1273,6 +1273,38 @@
       </table>
       <simple-id uuid='{38CC7CE1-18CA-425F-9144-9346136BB685}' />
     </worksheet>
+    <worksheet name='N Dimentions'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Orders (Global Superstore)' name='federated.0dv0ugl1ac7f5d1empm3k1xjokz7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0dv0ugl1ac7f5d1empm3k1xjokz7'>
+            <column caption='Category Average' datatype='real' name='[Calculation_560135263450603526]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{INCLUDE  [Segment]:SUM([Sales])}' />
+            </column>
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Segment]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_560135263450603526]' derivation='Avg' name='[avg:Calculation_560135263450603526:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[avg:Calculation_560135263450603526:qk]</rows>
+        <cols>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Category:nk]</cols>
+      </table>
+      <simple-id uuid='{CDAF5A0F-3E15-43A8-8C84-D845407643FB}' />
+    </worksheet>
     <worksheet name='Sheet 3'>
       <table>
         <view>
@@ -1322,22 +1354,15 @@
       </table>
       <simple-id uuid='{174ECA74-A1B2-41E1-8805-5CA37906607C}' />
     </worksheet>
-    <worksheet name='Sheet 8'>
+    <worksheet name='Sheet 9'>
       <table>
         <view>
           <datasources>
             <datasource caption='Orders (Global Superstore)' name='federated.0dv0ugl1ac7f5d1empm3k1xjokz7' />
           </datasources>
           <datasource-dependencies datasource='federated.0dv0ugl1ac7f5d1empm3k1xjokz7'>
-            <column caption='Category Average' datatype='real' name='[Calculation_560135263450603526]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='{FIXED [Segment], [Category]:SUM([Sales])}' />
-            </column>
-            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
-            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Segment]' role='dimension' type='nominal' />
-            <column-instance column='[Calculation_560135263450603526]' derivation='Avg' name='[avg:Calculation_560135263450603526:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Segment]' derivation='None' name='[none:Segment:nk]' pivot='key' type='nominal' />
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -1350,10 +1375,10 @@
             <mark class='Automatic' />
           </pane>
         </panes>
-        <rows>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[avg:Calculation_560135263450603526:qk]</rows>
-        <cols>([federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Segment:nk] / [federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Category:nk])</cols>
+        <rows>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Country:nk]</rows>
+        <cols>[federated.0dv0ugl1ac7f5d1empm3k1xjokz7].[none:Country:nk]</cols>
       </table>
-      <simple-id uuid='{CDAF5A0F-3E15-43A8-8C84-D845407643FB}' />
+      <simple-id uuid='{40E0B304-D843-4CD1-81ED-230B4F97778F}' />
     </worksheet>
   </worksheets>
   <windows source-height='30'>
@@ -1535,7 +1560,7 @@
       </cards>
       <simple-id uuid='{39D08307-59C4-456D-924D-7CE700BAA2E1}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 8'>
+    <window class='worksheet' name='N Dimentions'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1557,6 +1582,29 @@
         </edge>
       </cards>
       <simple-id uuid='{C98AF8AF-9B1C-4B7F-95BB-6192664AACD6}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 9'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C2009A29-B6A1-48D4-A5BF-B426A51168AD}' />
     </window>
   </windows>
 </workbook>
