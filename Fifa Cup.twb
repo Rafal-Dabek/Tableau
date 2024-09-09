@@ -25,6 +25,13 @@
     </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
   </_.fcp.AnimationOnByDefault.false...style>
   <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='12'>
+        <calculation class='tableau' formula='12' />
+        <range max='20' min='1' />
+      </column>
+    </datasource>
     <datasource caption='World Cup - Tableau format (world_cup_results)' inline='true' name='federated.06q6gun0nzzv3j14x28f61ivhx5w' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -49,23 +56,64 @@
             <column datatype='string' name='Observation' ordinal='12' />
           </columns>
         </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
-        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i' name='World Cup - Tableau format' table='[&apos;World Cup - Tableau format$&apos;]' type='table'>
-          <columns gridOrigin='A1:M1705:no:A1:M1705:0' header='yes' outcome='6'>
-            <column datatype='integer' name='Year' ordinal='0' />
-            <column datatype='integer' name='Game #' ordinal='1' />
-            <column datatype='date' name='Date' ordinal='2' />
-            <column datatype='string' name='Time' ordinal='3' />
-            <column datatype='string' name='Round' ordinal='4' />
-            <column datatype='string' name='Stadium' ordinal='5' />
-            <column datatype='string' name='City' ordinal='6' />
-            <column datatype='string' name='Country' ordinal='7' />
-            <column datatype='string' name='Team' ordinal='8' />
-            <column datatype='integer' name='Team G' ordinal='9' />
-            <column datatype='string' name='Opponent' ordinal='10' />
-            <column datatype='integer' name='Opponent G' ordinal='11' />
-            <column datatype='string' name='Observation' ordinal='12' />
-          </columns>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i' name='World Cup - Tableau format' table='[&apos;World Cup - Tableau format$&apos;]' type='table'>
+            <columns gridOrigin='A1:M1705:no:A1:M1705:0' header='yes' outcome='6'>
+              <column datatype='integer' name='Year' ordinal='0' />
+              <column datatype='integer' name='Game #' ordinal='1' />
+              <column datatype='date' name='Date' ordinal='2' />
+              <column datatype='string' name='Time' ordinal='3' />
+              <column datatype='string' name='Round' ordinal='4' />
+              <column datatype='string' name='Stadium' ordinal='5' />
+              <column datatype='string' name='City' ordinal='6' />
+              <column datatype='string' name='Country' ordinal='7' />
+              <column datatype='string' name='Team' ordinal='8' />
+              <column datatype='integer' name='Team G' ordinal='9' />
+              <column datatype='string' name='Opponent' ordinal='10' />
+              <column datatype='integer' name='Opponent G' ordinal='11' />
+              <column datatype='string' name='Observation' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i' name='WorldCups' table='[WorldCups$]' type='table'>
+            <columns gridOrigin='A1:J21:no:A1:J21:0' header='yes' outcome='2'>
+              <column datatype='integer' name='Year' ordinal='0' />
+              <column datatype='string' name='Country' ordinal='1' />
+              <column datatype='string' name='Winner' ordinal='2' />
+              <column datatype='string' name='Runners-Up' ordinal='3' />
+              <column datatype='string' name='Third' ordinal='4' />
+              <column datatype='string' name='Fourth' ordinal='5' />
+              <column datatype='integer' name='GoalsScored' ordinal='6' />
+              <column datatype='integer' name='QualifiedTeams' ordinal='7' />
+              <column datatype='integer' name='MatchesPlayed' ordinal='8' />
+              <column datatype='string' name='Attendance' ordinal='9' />
+            </columns>
+          </relation>
         </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Attendance]' value='[WorldCups].[Attendance]' />
+          <map key='[City]' value='[World Cup - Tableau format].[City]' />
+          <map key='[Country (WorldCups)]' value='[WorldCups].[Country]' />
+          <map key='[Country]' value='[World Cup - Tableau format].[Country]' />
+          <map key='[Date]' value='[World Cup - Tableau format].[Date]' />
+          <map key='[Fourth]' value='[WorldCups].[Fourth]' />
+          <map key='[Game #]' value='[World Cup - Tableau format].[Game #]' />
+          <map key='[GoalsScored]' value='[WorldCups].[GoalsScored]' />
+          <map key='[MatchesPlayed]' value='[WorldCups].[MatchesPlayed]' />
+          <map key='[Observation]' value='[World Cup - Tableau format].[Observation]' />
+          <map key='[Opponent G]' value='[World Cup - Tableau format].[Opponent G]' />
+          <map key='[Opponent]' value='[World Cup - Tableau format].[Opponent]' />
+          <map key='[QualifiedTeams]' value='[WorldCups].[QualifiedTeams]' />
+          <map key='[Round]' value='[World Cup - Tableau format].[Round]' />
+          <map key='[Runners-Up]' value='[WorldCups].[Runners-Up]' />
+          <map key='[Stadium]' value='[World Cup - Tableau format].[Stadium]' />
+          <map key='[Team G]' value='[World Cup - Tableau format].[Team G]' />
+          <map key='[Team]' value='[World Cup - Tableau format].[Team]' />
+          <map key='[Third]' value='[WorldCups].[Third]' />
+          <map key='[Time]' value='[World Cup - Tableau format].[Time]' />
+          <map key='[Winner]' value='[WorldCups].[Winner]' />
+          <map key='[Year (WorldCups)]' value='[WorldCups].[Year]' />
+          <map key='[Year]' value='[World Cup - Tableau format].[Year]' />
+        </cols>
         <metadata-records>
           <metadata-record class='capability'>
             <remote-name />
@@ -79,6 +127,20 @@
               <attribute datatype='string' name='gridOrigin'>&quot;A1:M1705:no:A1:M1705:0&quot;</attribute>
               <attribute datatype='boolean' name='header'>true</attribute>
               <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:J21:no:A1:J21:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
@@ -284,11 +346,173 @@
             </attributes>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year (WorldCups)]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Country (WorldCups)]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Winner</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Winner]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>Winner</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Runners-Up</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Runners-Up]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>Runners-Up</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Third</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Third]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>Third</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Fourth</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Fourth]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>Fourth</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GoalsScored</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[GoalsScored]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>GoalsScored</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>QualifiedTeams</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[QualifiedTeams]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>QualifiedTeams</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MatchesPlayed</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MatchesPlayed]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>MatchesPlayed</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Attendance</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Attendance]</local-name>
+            <parent-name>[WorldCups]</parent-name>
+            <remote-alias>Attendance</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LPL_RPL_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
       <column caption='Games Played' datatype='integer' name='[Calculation_1749648513370161152]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='COUNT([Team])' />
+      </column>
+      <column caption='World Cups Won' datatype='integer' name='[Calculation_426153174542573568]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{include [Year (WorldCups)]: COUNTD([Winner])}' />
+      </column>
+      <column caption='Cascade Effect' datatype='integer' name='[Calculation_426153174543966209]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='-[Calculation_426153174542573568]' />
       </column>
       <column caption='Performance' datatype='real' name='[Calculation_533113664321396736]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='SUM([Team G]) / COUNT([Game #])' />
@@ -302,9 +526,12 @@
         <calculation class='tableau' formula='IF [Team G] &gt; [Opponent G] THEN 1   &#13;&#10;ELSEIF  [Team G] &lt; [Opponent G] THEN -1 &#13;&#10;ELSE 0 END' />
       </column>
       <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column datatype='string' name='[Country (WorldCups)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
       <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column datatype='integer' name='[Year (WorldCups)]' role='dimension' type='quantitative' />
       <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='World Cup - Tableau format' datatype='table' name='[__tableau_internal_object_id__].[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='WorldCups' datatype='table' name='[__tableau_internal_object_id__].[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]' role='measure' type='quantitative' />
       <drill-paths>
         <drill-path name='Country, City'>
           <field>[Country]</field>
@@ -312,15 +539,43 @@
         </drill-path>
       </drill-paths>
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
-        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_0yr7z7a0jfx8n41ex8blb0n5353t.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/04/2024 05:02:20 PM' username='tableau_internal_user'>
-          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
-          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_0f4la901yd1qhv1fuw9af06atvna.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/09/2024 10:03:06 AM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943' table='[Extract].[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+            <relation name='World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943' table='[Extract].[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]' type='table' />
+            <relation name='WorldCups_A003F18C34BB4EEAB4753C871B036D7F' table='[Extract].[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]' type='table' />
+          </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+          <cols>
+            <map key='[Attendance]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[Attendance]' />
+            <map key='[City]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[City]' />
+            <map key='[Country (WorldCups)]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[Country]' />
+            <map key='[Country]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Country]' />
+            <map key='[Date]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Date]' />
+            <map key='[Fourth]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[Fourth]' />
+            <map key='[Game #]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Game #]' />
+            <map key='[GoalsScored]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[GoalsScored]' />
+            <map key='[MatchesPlayed]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[MatchesPlayed]' />
+            <map key='[Observation]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Observation]' />
+            <map key='[Opponent G]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Opponent G]' />
+            <map key='[Opponent]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Opponent]' />
+            <map key='[QualifiedTeams]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[QualifiedTeams]' />
+            <map key='[Round]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Round]' />
+            <map key='[Runners-Up]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[Runners-Up]' />
+            <map key='[Stadium]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Stadium]' />
+            <map key='[Team G]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Team G]' />
+            <map key='[Team]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Team]' />
+            <map key='[Third]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[Third]' />
+            <map key='[Time]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Time]' />
+            <map key='[Winner]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[Winner]' />
+            <map key='[Year (WorldCups)]' value='[WorldCups_A003F18C34BB4EEAB4753C871B036D7F].[Year]' />
+            <map key='[Year]' value='[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943].[Year]' />
+          </cols>
           <metadata-records>
             <metadata-record class='column'>
               <remote-name>Year</remote-name>
               <remote-type>20</remote-type>
               <local-name>[Year]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Year</remote-alias>
               <ordinal>0</ordinal>
               <family>World Cup - Tableau format</family>
@@ -334,7 +589,7 @@
               <remote-name>Game #</remote-name>
               <remote-type>20</remote-type>
               <local-name>[Game #]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Game #</remote-alias>
               <ordinal>1</ordinal>
               <family>World Cup - Tableau format</family>
@@ -348,7 +603,7 @@
               <remote-name>Date</remote-name>
               <remote-type>133</remote-type>
               <local-name>[Date]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Date</remote-alias>
               <ordinal>2</ordinal>
               <family>World Cup - Tableau format</family>
@@ -362,7 +617,7 @@
               <remote-name>Time</remote-name>
               <remote-type>129</remote-type>
               <local-name>[Time]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Time</remote-alias>
               <ordinal>3</ordinal>
               <family>World Cup - Tableau format</family>
@@ -377,7 +632,7 @@
               <remote-name>Round</remote-name>
               <remote-type>129</remote-type>
               <local-name>[Round]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Round</remote-alias>
               <ordinal>4</ordinal>
               <family>World Cup - Tableau format</family>
@@ -392,7 +647,7 @@
               <remote-name>Stadium</remote-name>
               <remote-type>129</remote-type>
               <local-name>[Stadium]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Stadium</remote-alias>
               <ordinal>5</ordinal>
               <family>World Cup - Tableau format</family>
@@ -407,7 +662,7 @@
               <remote-name>City</remote-name>
               <remote-type>129</remote-type>
               <local-name>[City]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>City</remote-alias>
               <ordinal>6</ordinal>
               <family>World Cup - Tableau format</family>
@@ -422,7 +677,7 @@
               <remote-name>Country</remote-name>
               <remote-type>129</remote-type>
               <local-name>[Country]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Country</remote-alias>
               <ordinal>7</ordinal>
               <family>World Cup - Tableau format</family>
@@ -437,7 +692,7 @@
               <remote-name>Team</remote-name>
               <remote-type>129</remote-type>
               <local-name>[Team]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Team</remote-alias>
               <ordinal>8</ordinal>
               <family>World Cup - Tableau format</family>
@@ -452,7 +707,7 @@
               <remote-name>Team G</remote-name>
               <remote-type>20</remote-type>
               <local-name>[Team G]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Team G</remote-alias>
               <ordinal>9</ordinal>
               <family>World Cup - Tableau format</family>
@@ -466,7 +721,7 @@
               <remote-name>Opponent</remote-name>
               <remote-type>129</remote-type>
               <local-name>[Opponent]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Opponent</remote-alias>
               <ordinal>10</ordinal>
               <family>World Cup - Tableau format</family>
@@ -481,7 +736,7 @@
               <remote-name>Opponent G</remote-name>
               <remote-type>20</remote-type>
               <local-name>[Opponent G]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Opponent G</remote-alias>
               <ordinal>11</ordinal>
               <family>World Cup - Tableau format</family>
@@ -495,7 +750,7 @@
               <remote-name>Observation</remote-name>
               <remote-type>129</remote-type>
               <local-name>[Observation]</local-name>
-              <parent-name>[Extract]</parent-name>
+              <parent-name>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</parent-name>
               <remote-alias>Observation</remote-alias>
               <ordinal>12</ordinal>
               <family>World Cup - Tableau format</family>
@@ -505,6 +760,152 @@
               <contains-null>true</contains-null>
               <collation flag='0' name='LPL_RPL' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year (WorldCups)]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>13</ordinal>
+              <family>WorldCups</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country (WorldCups)]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>Country</remote-alias>
+              <ordinal>14</ordinal>
+              <family>WorldCups</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Winner</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Winner]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>Winner</remote-alias>
+              <ordinal>15</ordinal>
+              <family>WorldCups</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Runners-Up</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Runners-Up]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>Runners-Up</remote-alias>
+              <ordinal>16</ordinal>
+              <family>WorldCups</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Third</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Third]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>Third</remote-alias>
+              <ordinal>17</ordinal>
+              <family>WorldCups</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Fourth</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Fourth]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>Fourth</remote-alias>
+              <ordinal>18</ordinal>
+              <family>WorldCups</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GoalsScored</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[GoalsScored]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>GoalsScored</remote-alias>
+              <ordinal>19</ordinal>
+              <family>WorldCups</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>QualifiedTeams</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[QualifiedTeams]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>QualifiedTeams</remote-alias>
+              <ordinal>20</ordinal>
+              <family>WorldCups</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>MatchesPlayed</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[MatchesPlayed]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>MatchesPlayed</remote-alias>
+              <ordinal>21</ordinal>
+              <family>WorldCups</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Attendance</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Attendance]</local-name>
+              <parent-name>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</parent-name>
+              <remote-alias>Attendance</remote-alias>
+              <ordinal>22</ordinal>
+              <family>WorldCups</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPL_RPL' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
           </metadata-records>
         </connection>
@@ -537,18 +938,42 @@
               </relation>
             </properties>
             <properties context='extract'>
-              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+              <relation name='World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943' table='[Extract].[World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943]' type='table' />
+            </properties>
+          </object>
+          <object caption='WorldCups' id='WorldCups_A003F18C34BB4EEAB4753C871B036D7F'>
+            <properties context=''>
+              <relation connection='excel-direct.0fot7y91mdp6pe0zld60i1n7bv4i' name='WorldCups' table='[WorldCups$]' type='table'>
+                <columns gridOrigin='A1:J21:no:A1:J21:0' header='yes' outcome='2'>
+                  <column datatype='integer' name='Year' ordinal='0' />
+                  <column datatype='string' name='Country' ordinal='1' />
+                  <column datatype='string' name='Winner' ordinal='2' />
+                  <column datatype='string' name='Runners-Up' ordinal='3' />
+                  <column datatype='string' name='Third' ordinal='4' />
+                  <column datatype='string' name='Fourth' ordinal='5' />
+                  <column datatype='integer' name='GoalsScored' ordinal='6' />
+                  <column datatype='integer' name='QualifiedTeams' ordinal='7' />
+                  <column datatype='integer' name='MatchesPlayed' ordinal='8' />
+                  <column datatype='string' name='Attendance' ordinal='9' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='WorldCups_A003F18C34BB4EEAB4753C871B036D7F' table='[Extract].[WorldCups_A003F18C34BB4EEAB4753C871B036D7F]' type='table' />
             </properties>
           </object>
         </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[Year]' />
+              <expression op='[Year (WorldCups)]' />
+            </expression>
+            <first-end-point object-id='World Cup - Tableau format_FBFFB3307325438F8B6AC66C39D80943' />
+            <second-end-point object-id='WorldCups_A003F18C34BB4EEAB4753C871B036D7F' />
+          </relationship>
+        </relationships>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
-    </datasource>
-    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
-      <aliases enabled='yes' />
-      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='12'>
-        <calculation class='tableau' formula='12' />
-        <range max='20' min='1' />
-      </column>
     </datasource>
   </datasources>
   <worksheets>
@@ -820,6 +1245,50 @@
       </table>
       <simple-id uuid='{D00CAEB9-162C-4655-8C2C-C9014E692655}' />
     </worksheet>
+    <worksheet name='World Cup Winner'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='World Cup - Tableau format (world_cup_results)' name='federated.06q6gun0nzzv3j14x28f61ivhx5w' />
+          </datasources>
+          <datasource-dependencies datasource='federated.06q6gun0nzzv3j14x28f61ivhx5w'>
+            <column caption='World Cups Won' datatype='integer' name='[Calculation_426153174542573568]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{include [Year (WorldCups)]: COUNTD([Winner])}' />
+            </column>
+            <column caption='Cascade Effect' datatype='integer' name='[Calculation_426153174543966209]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='-[Calculation_426153174542573568]' />
+            </column>
+            <column datatype='string' name='[Winner]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year (WorldCups)]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_426153174542573568]' derivation='Sum' name='[cum:sum:Calculation_426153174542573568:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+            </column-instance>
+            <column-instance column='[Winner]' derivation='None' name='[none:Winner:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_426153174542573568]' derivation='Sum' name='[sum:Calculation_426153174542573568:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_426153174543966209]' derivation='Sum' name='[sum:Calculation_426153174543966209:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Winner:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[sum:Calculation_426153174542573568:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='GanttBar' />
+            <encodings>
+              <size column='[federated.06q6gun0nzzv3j14x28f61ivhx5w].[sum:Calculation_426153174543966209:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[cum:sum:Calculation_426153174542573568:qk]</rows>
+        <cols>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Winner:nk]</cols>
+      </table>
+      <simple-id uuid='{21B78C4D-1EFD-4201-B84E-C4AF571A5D55}' />
+    </worksheet>
   </worksheets>
   <windows source-height='30'>
     <window class='worksheet' name='Games Played'>
@@ -882,11 +1351,6 @@
         </edge>
       </cards>
       <viewpoint>
-        <current-page>
-          <multibucket>
-            <bucket>1966</bucket>
-          </multibucket>
-        </current-page>
         <highlight>
           <color-one-way>
             <field>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Team:nk]</field>
@@ -897,7 +1361,7 @@
       </viewpoint>
       <simple-id uuid='{E6F756FB-FE9A-4AFF-B410-7D38C4777B7F}' />
     </window>
-    <window class='worksheet' maximized='true' name='Win/Loss History'>
+    <window class='worksheet' name='Win/Loss History'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -951,6 +1415,36 @@
         </edge>
       </cards>
       <simple-id uuid='{1C38AF23-D066-43EC-A64A-1B7320CFDF21}' />
+    </window>
+    <window class='worksheet' maximized='true' name='World Cup Winner'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.06q6gun0nzzv3j14x28f61ivhx5w].[none:Winner:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{087AD686-E148-4EAF-BD95-31A0E9E9006B}' />
     </window>
   </windows>
   <thumbnails>
@@ -1227,109 +1721,133 @@
     </thumbnail>
     <thumbnail height='192' name='Win/Loss History' width='192'>
       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
-      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
+      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
     </thumbnail>
     <thumbnail height='192' name='Win/Loss History (2)' width='144'>
       iVBORw0KGgoAAAANSUhEUgAAAJAAAADACAYAAADryOpPAAAACXBIWXMAAA7DAAAOwwHHb6hk
@@ -1433,6 +1951,106 @@
       NmWT1O/+bnyNnuhy5T3RO+ZP4S9fV/VET58zFR/HijNmCWnrp/PB0h2czrfG3m0gHy16j+52
       6UT7D2JJzZ0SbpqJdI3XjxMnThASEkJ6ejrPPfccH330Ea1alT1kJdM5hBa5lSG0SICEFgmQ
       0CIBElqkJ1pokSOQ0CIBElokQELL/wFOLVNI6w2Z7QAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='World Cup Winner' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAUR0lEQVR4nO3dSXCb533H8e+7YF8IgiS4iiIpidosWbIl23LsWGnj2FOnzXSZyfTQZXrs
+      qaceOz62xx7aQ6fXpu0haSZN3TSp5LaWbcnaZUokJVIUd3AnQCwE8L7v04Ns2bQEigFASOT7
+      /8zoQIDvw7/I94d3exZNKaUQwqX0Z12AEM+SBEC4mgRAuJr5rAsQW5deWyPk97CWt/FqDr5w
+      BEN71lXtbBKAHeTiuV/Rd7iDjz9fp9mb4sjBfhr27EXlcni9XkqlIqY/jJcimSJE/CbrJZtI
+      NCKH+jI0uQu0cwxc/CV353RCjQZ21iGWz+Lt0pjOJwgM/QeZnu9QXFslP32PqYziVP9eVNcx
+      3jlzFONZF/+ckg+GHaSjo4vppWW6nBz5UAzdNDAMg77+w8QCOt37DhLxmzQm2nnt9TNEg2FO
+      nJCdfzNyBBCuVvMjgFIKyZTYKWoeAMdxat2kENtGrgGEq0kAhKtJAISrSQCEq0kAhKtV1BUi
+      l5pnYHiMaHMnRn6RhZzGa6deRJd+KWKHqehBmFKKbGqBuaUMJc1Dm54hnzhMi9fCcRw0TZIg
+      nl+XBmexvrhdX9ERIJ9eZGFNsa+nk1vD46Qo0eAF0zSxbRtd1yUE4rn19z+9THa9BFQYANuy
+      WJidpGhZdMX9LK6HaZB+pWIHqmi3jTS180pT+6Ov4zUrR4j6krtAwtUkAMLVJADC1SQAwtXk
+      3o14rhVKFrZd2fgSTYOAz/PY6wGfB+eLx181HxEmzwFELf31P13g09tTFW3bEgvyj3/5O5t+
+      j5wCCVeTAAhXkwAIV5MACFeTAAhXqygAVjHPyPAoJaWYHrvLzdv3qPBOlRDPVEXPAZQC07Ep
+      qSILqQIhzSZjQ9RQj+YFkrmB3KdYsskVrIq3j4a86N+4fR70e2gI+SprL+h96jQ9FQXA4wvg
+      9xooBwzNJl8qYNvgaA5KKZkbyKXOXb3PP/z8esXb/91fvEtbPLzhtT//wcvwg5crbnNbApBL
+      zTMyNUWDo+MzNVIlL0ETDOPhLJTyIMydNL26S0rDMDDN+nZOqOinBRsSvPFWota1CFF3chdI
+      uJoEQLiaBEC4mgRAuJoEQLiajAdwqfmVLH/zo48r3v4Pzh7mzNE9G15bzayzsJqtuM29bTG8
+      Zn0XdJIRYS5VsmxGppcr3j6VLTz2WizsJxb2V1NW3ckpkHA1CYBwNQmAcDUJgHC1igKglM3y
+      4jI2UMylGZ+cRfp/ip2oogAUcxlmxicpOBaDw6MEApX11xbiWav4OUBydJRodztXP72MxzDo
+      f+l1oh5HFsjYJj/7+C7nr49XtO2J/a386bvHN7xm2Q6zS5mK62mM+AkHvBVv/7yoeDzAnXv3
+      aFImrU0NrKSyoMkCGdspnS8xtZCuaNu9rQ14PBtnSPN4oK9TjtwVjwf4jXff/eKrvTUsR4j6
+      krtAwtUkAMLVJADC1SQAwtUkAMLVJADC1SQAwtUkAMLVJADC1TYNgGOXSKVSZHJ5ZKpbsRtt
+      2hVi+MJ57tp+ulu7OHF0X71qEqJuNj0CNLQ0kF1eJZNbr1c9QtTVpgEIxRoxlPVwwdWvWc+s
+      cOmji+SAwtoiP/vF+e2sUYhts+kp0NzYJB39h1gcnwKOPHrdH25kb0cLyrEZn1miZ8/DmaIt
+      y8JxHNevDzC1sMYvr4xVvP07p3vpbI5seO3lA600hivrf98eD1MqlSquZzcrG4Dk2CDjOYf8
+      0hgnTr++4b1iPsPs3By5YIC11WUmZpPs6emnMeSV8QDASqbABxfvVbz9K4c76Wnf2H//+P52
+      ju9vr7Y08Q1lA9DQ3EZHOsutm7e4dmOInvavQqDpOu19fXj9IfpePcMLhQI+384fHSTcp2wA
+      FibuMXBvhkT3frp7eza85/EFaWsLPvra55ORRWJnKnsR7A834DcVa6urTM3M17MmIeqm7BGg
+      saOX3+7uf2zVPiF2k7IB8Hi8pOamWEqtMb9u8urxA0gUxG6z6XOA6cHb/OSTG6zNTkhXCLEr
+      bRqAvpMvcqwtTqJXPv3F7rRpAMY/H6D7xGkm797BdvnDLbE7bRqAxs4ORq5ewrYLjM+u1qsm
+      Iepm0wAYHi9eU6Okh+jrjNerJiHqZmsDYpRcAYjdqWwAkiN3sBt7+N733ubA3kQ9axKibsoG
+      ILM8x9jkLOmlJKMTcxveU0phlSwUCtsqUSiW5Dap2JHKBmDfqTcJZqa4dvsBb3/vOxtugxay
+      q1y/dJW8cngwepcbly6Rkt62Ygcquz6AbVtYlg2ArhuYHnNDCJKjo0T37UNbW+bBbIr+/l7U
+      F+MBdlJXaMdR/O2PL1e8/elD7bxxbON6uStr69x5sFBxm0d7W3bccqM7VdmuEEtTo/z8p78g
+      2n+QXNrij374/Ufvra8tMzI2RpPpZenBCLHmBMUSBDw7b30Ay3b4eGCy4u1b4+HH5t5PxD0k
+      4pEyW4jnSdkAJPYe5Pvv5fjw5gTxppYN73mDUV56/XV0w6A30YSjwCtLbosdqPwRYHqM4dkM
+      rfEoDa1tG97TDZNgUPZ4sfOV3YtDsSZi3iS+nn3Ew+F61iRE3ZQfEBOK0hiGD395jsGRys+R
+      hXiebfokuLmzh9Z4iGgsWq96hKirTQNw/8YNjrzxNpNDt+tVjxB1tcm0KMOseCKsfvYRB0+e
+      rmdNQtRN2SNA6979dDT6Gbp5hY8vfV7PmoSom7JHgLuXz/PfN2c5dfYdDh8+Uu7bhNjRyh4B
+      2nqP8MK+NuYmxrhw8Xo9axKibsoeAQxfgKMnX+H1aASPadSzJiHqZpPxACPcunqdqeUlVlIZ
+      6e4sdqWyAejs7yOzOMvnN25wfzK54T2lHLKZLA5QyGdJreW2u04htkXZAAQizbz68kHWswUW
+      Fpc3vFfMpbk7MMS6U2JwcJh7twfIyaQRYgfatEdbfi2LPxIml8lueN0XitHeEkPZRYLxBB1m
+      hpU8eH07b30A266uVsexZe79HWzTAOx96U2a0mkC0eiGwTC51DwDQ0M0Kx1tJcnVPLz2Jpja
+      zhsPoOnVBUDXjcfGA4idY9MALI3f5txnQyT2HODsmRcfhSDYkOC77733xVe921uhENto075A
+      mYUloh17aG1urFc9QtTVpkeAYrFER/ch2huCm32bEDvWU6dGnBy4xtDodL3qEaKuNg2Abnrx
+      GBpTUzIgRuxOW5oaUdekK4TYncpeA6SS49jRTvxqgKZ9h+pZ06Y+ujXBUqqyJ8+xiJ+zJ3o2
+      vKZrGj9442DF9RzpaXn6N4nnVtkATAwNUYonKTYcpDgxgjrS81wskvHBxXsVTzq1vzP+eAB0
+      jT/7rZM1qEzsRGVPgQ6efoX1jMabpw9w4PDB52LnF6LWygbAG2rktVdfQrNtOjpkhXKxO236
+      HGD4wjkGcoqZgcuc/M0/4dsvdderLiHqYtO7QC3dbTjZdfa/cJygKSdBYvfZNACWpaFpDpGm
+      fbx8rKteNQlRN0/pCzRHvHs/na1N8KTenU6Jm1c/45MLF8na21WiENun7DWAVcxQ9MVIPbjH
+      hA19e590IayhKYVCQ9fAsrZ/PECZ5Qy2vK303RdfVzYAuu4l3tJEUzpDJPzkznDKLmGZARLh
+      HOl1aA1u/3iAatrVNE367osNygfA9LL6YAQr1EQ4+OTVSjSPn317EqQKOgnpMCp2oE2vARpa
+      4yxNTbOwlCrzHRoNTW10dyTkQZnYkTa/C1R00A3ZtcXutWkA1tNLWLoPr1fOm8XutOmT4L5X
+      v0tXyUI3ZDkksTttumevJse5cnuElRz88HffrVdNQtTNlgbE+P2B7a5DiGeibADy6Xmu3R7l
+      wJHjdDQ31LMmIeqmbACGLl2l+/iL/Oon/0pzV08dSxKifsoGoLGtmcHLn9GQaGd6SmaFELtT
+      2YvgnmOn6TlWz1KEqL8tXQQLsVtJAISrVRkAxez4Xa7cGESGA4idqLpHvHaB8Zkl2roeTpli
+      2zaO41TVZ/+pqhwPYFlWDYsRO13VfRw8vgBaeoqpVIKuiIamffVvW1TTrAa6Lmd94ivVBcDw
+      sbctxsRijmMRA11/+Cm7vQtkVDEgBk0CIDao8gig0dzRQ3NHbYoRot7k41C4mgRAuJoEQLia
+      BEC42rYO9ZpdWiO5nKl4++N9rRjGxowe6IrjNStbsKOzOVJxLWJ30lSNn1p9fV6gfzk3wD+f
+      G6i4rR/91e8R8ntrWJ0QG8kpkHA1CYBwNQmAcDUJgHA1CYBwtaoDYJfyXPj0s1rUIkTdVfkc
+      QDE5NoY3+HDeIMuyUEo9Wh+g2nUCLMuW+fzFtqoqAHYxy+TMHIurq6zsP0gs6MFxnK/GBFTZ
+      9dg0DUxTpmUU26eqvcvwhnnz7HdYXl6mMfTVA6tHAai6vOoWxBDiaWpyERyPx2vRjBB1J3eB
+      hKtJAISrSQCEq0kAhKtJAISrSQCEq0kAhKtJAISrSQCEq0kAhKtJAISrVRcApUhOjnJjYBh7
+      G2dEF2K7VD0eINiQoCkzzpoNDYZCKfVofQBFlalQbO9aA8L1qp4dOpdaxGjpImaCbT9cHMO2
+      bTRNQznV7by2bWPbcpYmtk91AXBKTE3PoswlGqKnCHkfztj25cRY1c7Fb8iAGLHNqlwgw8up
+      116vUSlC1J+cXwhXkwAIV5MACFeTAAhXkwAIV5MACFeTAAhXkwAIV6s6AOmlJA+m52tRixB1
+      V10A7AIPZpYpLc2QtmpUkRB1VFUAlGPjC0dINPjIFGtVkhD1U1UANNOPWptnYDZPIlCrkoSo
+      n+o6w2k6h46/XKNShKi/mq4TbFnWhvUBltfyrKTzFbfX29GIrmk4jlN11+pv2o42lVI1nc69
+      1u1B7f/fX+4+tayznn/vbV0ou1Ysy6r5uIBat/nlyjiGUdkq9k+yE36XX64CVMsdtp5/75oH
+      4EmUcrAsG103MIzyv6iHwylB17f4B1cKB9C/sYP8Op8gynGwbBvTNGu2ozmOg6brqBp9km1H
+      EL7OcWxsW33xO6isDaUUjm2jNA2zhh8CD9ve2v6zVVaphELDNM36PAhbT03y8ac3uHjtVtnv
+      KeXTrKRWGBmd2nrD6UnGli3mkskNLw8N3tnS5sqxuHX9Mrdv3yadt7f+c59i+M4QCngwNlaD
+      1hwu/u95VnJbuc1mkUwuYhXzpDO5Lbd/58Y1Bj6/ydoTfkQ+s0Ku+PS13vKrs3x29QZDIxNb
+      /Llbl556wKVbN0kup2vS3uVP/oehe/exnKrHBG+RAssq4jeCjA5eJ2UFMbPTXL+/wnffeoVb
+      129x5HAvpUDi1246n15k+PZVjp88wScf/orOY2/RaCqGB4eIh0205l6aA0/+RLJLBYKxNrR8
+      krXUIv/54/8i0N5PZ6hIQ1Mb08l5SoUCPs3LC6f28+//9gHHv/U22alRHDNEa1uUxmgYx9dE
+      W2PwiT/j8oXzROKdmOEwhcwKAd1hcX6GcKIXJ9wOqSk8hSU+vT3Nt868TCQWJ5stsW9vGwDF
+      1SSJ3gPMJZeZSU1AsJFiepn5pTw93SE+uXiLb505w9jMHG2dncyMjnH06GEspbh5bQzbjNCf
+      8PDB+Su894d/THvE840KNWKxEFMLObJT97ixvEQ40Ixaustg0ubsK71YnjT3R6aJxJs5fbz/
+      if/PlbkUh17Yz53BccYHr3Du0xu8dPJVlnM5uhq9TM9n0AyNYKSJSGmOjz6f552zx5lZXCXo
+      D+ELNWLaOXoP9GM8dhRSWKUSWm6Rc/83yIGeNi6c/5D+029RWJ4kp3wcao8yvVIkqK9x5eYo
+      Z7//+/S1Rp9Yq2PblCyL8TvXMd5///33y+xbNWMV0iymFUpZNDREOXBgPzNTU4RCfgxNw/aE
+      aY16KBghKFk0NTVsreFCijVPK+b6Il6vByMQQVMe/B5FT3uUa/dTHOltL7tWmabrTIzdQ9Mc
+      lB7E0r30dXcRDIXY353A8ceJRwPsiUWZz2eJxZtQJYdEopNE1EcsEeP20AyH+/fy9bO2lflJ
+      ZpKzON5GopEQPV0tjIyOspopEvGbeDULK9DEUnKGbC6PqTlEI35aug8yNnCNviMv4PtiL5gY
+      G2FuKc3a2hqNzU0c6tvD7NwijuXgD/lobt1DW6OXcGsXPm8Y08rSEGvAciDW0kokYJJbW6Mp
+      6kFr6KEp9M3PPEVqJYVTXKNg+VE+HY+hU8yXCPs9BKMhDG+Q1o4+PE6BeDz2xN+lzjrDo0kc
+      xyHo0WhIdJKIBGjq7SdqFGnt6CHc2IRfK7CWKRDVDHytrfQfOkwpl8VYX6AYaCPRGHr8z5zO
+      0nzgAK1+hYp0ELFXsX1RNEMn0dZBPBxAUxYYfpSyaGnvoq21laDvyZ/vczNTROPN+E1vna4B
+      HItsNo/p9eMxdXTdoFTMYzsaugbFkoXf70PXDRRq6+eQjo2NjlXMoxkeSsUiHq8PXYPFmTFK
+      vhb2tD75D/Ylu1QkXygRDAYpFnIo3YPXNDB0DdsBUA8DpCny+SJen/fRNcfS7AOyeozejqZv
+      lGWRyxcIBIOgHl4HrOdzaIaH1dn7DN6f4dhr3yaoCugeL4ayKTmgCmnG5nO80N/zVX2WhW6Y
+      OLb18PxaVwxcv8JSwcsbrx4nn1vH7/ejaQ/PZq3SOprhxdA1QAMUyrEolmy8/gDmY9dXimKh
+      QMlWqPQKa8EwLaEwdmkdBwOvx3jYjqaDKn+Rr5SisJ7D0UwCXoNsbh2f34+uG2jKAU17OEmO
+      UthWEcvW8Po8GLqO4xQZGhim9/BRgt7H23dsG3QdHYWtQMMhny/g9fke/S10DbK5dfx+L+vr
+      RQLBAEaZ6698NoONjt/nq08AhHheSW/QMvKZNMm5edbX8ySTc+QKsmD3biQBKGNifJxisUhh
+      aYKplXUGB4eRY+XuIwEowy7mmV9YwHIUC8kZMH3PuiSxDSQAZQRiCU69dJJwwMehw4cJePTq
+      5zoVzx25CBau9v9t4IsU+y/C3gAAAABJRU5ErkJggg==
     </thumbnail>
   </thumbnails>
   <external>
