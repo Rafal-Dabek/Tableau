@@ -993,6 +993,9 @@
           <style-rule element='axis'>
             <encoding attr='space' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' field-type='quantitative' fold='true' scope='cols' synchronized='true' type='space' />
           </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' value='c#,##0&quot;$&quot;;-#,##0&quot;$&quot;' />
+          </style-rule>
           <style-rule element='label'>
             <format attr='text-format' field='[federated.1qhag010a0urge13k17g70oh605n].[usr:Calculation_606297163930112001:ok]' value='p0.00%' />
           </style-rule>
@@ -1005,11 +1008,10 @@
             <mark class='Automatic' />
             <encodings>
               <color column='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' />
-              <text column='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' />
             </encodings>
             <style>
               <style-rule element='cell'>
-                <format attr='text-align' value='left' />
+                <format attr='text-align' value='center' />
               </style-rule>
               <style-rule element='mark'>
                 <format attr='mark-labels-show' value='true' />
@@ -1043,15 +1045,14 @@
             <mark class='GanttBar' />
             <encodings>
               <color column='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' />
-              <text column='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' />
             </encodings>
             <style>
               <style-rule element='cell'>
-                <format attr='text-align' value='left' />
+                <format attr='text-align' value='center' />
               </style-rule>
               <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
               </style-rule>
             </style>
           </pane>
@@ -1132,9 +1133,95 @@
       </table>
       <simple-id uuid='{F858434E-C35F-49DC-99D7-FD5274D7E2C7}' />
     </worksheet>
+    <worksheet name='Sales Over Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Orders (Global Superstore)' name='federated.1qhag010a0urge13k17g70oh605n' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Year' datatype='date' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='#2014-01-01#'>
+              <calculation class='tableau' formula='#2014-01-01#' />
+              <range granularity='1' max='#2014-12-31#' min='#2011-01-01#' period-type-v2='year' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1qhag010a0urge13k17g70oh605n'>
+            <column caption='Prior Year Sales' datatype='real' name='[Calculation_606297163927777280]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF DATEPART(&apos;year&apos;,[Order Date])=DATEPART(&apos;year&apos;,[Parameters].[Parameter 1])-1 then   [Sales]END' />
+            </column>
+            <column caption='Current Year Sales' datatype='real' name='[Calculation_682858357185110016]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF DATEPART(&apos;year&apos;,[Order Date])=DATEPART(&apos;year&apos;,[Parameters].[Parameter 1]) then   [Sales]END' />
+            </column>
+            <column datatype='date' name='[Order Date]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+            <column-instance column='[Order Date]' derivation='Month' name='[mn:Order Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_606297163927777280]' derivation='Sum' name='[sum:Calculation_606297163927777280:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_682858357185110016]' derivation='Sum' name='[sum:Calculation_682858357185110016:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='fill-above' id='refline1' value='#00000000' />
+            <format attr='fill-below' id='refline1' value='#00000000' />
+            <format attr='stroke-color' id='refline1' value='#b4b4b44b' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='8' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <reference-line axis-column='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' value-column='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='9' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='10' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1qhag010a0urge13k17g70oh605n].[none:Region:nk] * ([federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk] + [federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]))</rows>
+        <cols>[federated.1qhag010a0urge13k17g70oh605n].[mn:Order Date:ok]</cols>
+      </table>
+      <simple-id uuid='{56F7D0F1-B5AD-44D4-97AD-FE2724A33004}' />
+    </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Cumulative Sales By Region'>
+    <window class='worksheet' name='Cumulative Sales By Region'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1193,6 +1280,35 @@
         </edge>
       </cards>
       <simple-id uuid='{F32774BD-88E4-48A5-B65F-5D4599190EC4}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sales Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card mode='slider' param='[Parameters].[Parameter 2]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2190D47D-8728-468E-87CF-A99625CD0ABA}' />
     </window>
   </windows>
 </workbook>
