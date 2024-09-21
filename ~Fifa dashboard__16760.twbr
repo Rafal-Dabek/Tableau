@@ -2591,9 +2591,13 @@
             <column-instance column='[Nationality]' derivation='None' name='[none:Nationality:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]'>
-            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
-              <groupfilter function='level-members' level='[none:Calculation_1179380216592318468:nk]' />
-              <groupfilter function='member' level='[none:Calculation_1179380216592318468:nk]' member='%null%' />
+            <groupfilter count='5' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([Wage (€)])' function='order' user:ui-marker='order'>
+                <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+                  <groupfilter function='level-members' level='[none:Calculation_1179380216592318468:nk]' />
+                  <groupfilter function='member' level='[none:Calculation_1179380216592318468:nk]' member='%null%' />
+                </groupfilter>
+              </groupfilter>
             </groupfilter>
           </filter>
           <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]'>
@@ -2613,10 +2617,15 @@
         <style>
           <style-rule element='axis'>
             <encoding attr='space' class='1' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' field-type='quantitative' fold='true' scope='cols' type='space' />
-            <format attr='stroke-size' scope='rows' value='0' />
             <format attr='display' class='1' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='false' />
             <format attr='title' class='0' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='' />
             <format attr='auto-subtitle' class='0' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='false' />
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='tick-color' scope='cols' value='#00000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]' value='#ffffff' />
+            <format attr='color' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' value='#ffffff' />
           </style-rule>
           <style-rule element='table'>
             <format attr='background-color' value='#2e4d5e' />
@@ -2633,6 +2642,14 @@
             <format attr='line-visibility' scope='rows' value='off' />
             <format attr='stroke-size' scope='cols' value='0' />
             <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='div-level' scope='cols' value='0' />
+            <format attr='div-level' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
           </style-rule>
         </style>
         <panes>
