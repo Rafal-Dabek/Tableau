@@ -1133,7 +1133,7 @@
       </table>
       <simple-id uuid='{F858434E-C35F-49DC-99D7-FD5274D7E2C7}' />
     </worksheet>
-    <worksheet name='Sales Over Time'>
+    <worksheet name='Sales Over TIme'>
       <table>
         <view>
           <datasources>
@@ -1144,6 +1144,10 @@
             <column caption='Year' datatype='date' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='#2014-01-01#'>
               <calculation class='tableau' formula='#2014-01-01#' />
               <range granularity='1' max='#2014-12-31#' min='#2011-01-01#' period-type-v2='year' />
+            </column>
+            <column caption='Top N' datatype='integer' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='5'>
+              <calculation class='tableau' formula='5' />
+              <range max='10' min='3' />
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.1qhag010a0urge13k17g70oh605n'>
@@ -1161,63 +1165,58 @@
             <column-instance column='[Calculation_606297163927777280]' derivation='Sum' name='[sum:Calculation_606297163927777280:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_682858357185110016]' derivation='Sum' name='[sum:Calculation_682858357185110016:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.1qhag010a0urge13k17g70oh605n].[none:Region:nk]'>
+            <groupfilter count='[Parameters].[Parameter 2]' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([Calculation_682858357185110016])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:Region:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1qhag010a0urge13k17g70oh605n].[none:Region:nk]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='axis'>
-            <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' scope='rows' value='true' />
-          </style-rule>
-          <style-rule element='refline'>
-            <format attr='fill-above' id='refline0' value='#00000000' />
-            <format attr='fill-below' id='refline0' value='#00000000' />
-            <format attr='fill-above' id='refline1' value='#00000000' />
-            <format attr='fill-below' id='refline1' value='#00000000' />
-            <format attr='stroke-color' id='refline1' value='#b4b4b44b' />
+            <encoding attr='space' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' scope='rows' value='false' />
+            <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' scope='rows' value='false' />
           </style-rule>
         </style>
         <panes>
-          <pane id='8' selection-relaxation-option='selection-relaxation-allow'>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
-            <reference-line axis-column='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' value-column='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' z-order='1' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
+            <encodings>
+              <color column='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' />
+            </encodings>
           </pane>
-          <pane id='9' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]'>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]'>
             <view>
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
+            <encodings>
+              <color column='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' />
+            </encodings>
           </pane>
-          <pane id='10' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]'>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]'>
             <view>
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
+            <encodings>
+              <color column='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' />
+            </encodings>
           </pane>
         </panes>
-        <rows>([federated.1qhag010a0urge13k17g70oh605n].[none:Region:nk] * ([federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk] + [federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]))</rows>
+        <rows>([federated.1qhag010a0urge13k17g70oh605n].[none:Region:nk] * ([federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk] + [federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]))</rows>
         <cols>[federated.1qhag010a0urge13k17g70oh605n].[mn:Order Date:ok]</cols>
       </table>
-      <simple-id uuid='{56F7D0F1-B5AD-44D4-97AD-FE2724A33004}' />
+      <simple-id uuid='{9FC44BAE-A458-42AE-BF5E-7C421B331BA6}' />
     </worksheet>
   </worksheets>
   <windows source-height='30'>
@@ -1281,7 +1280,7 @@
       </cards>
       <simple-id uuid='{F32774BD-88E4-48A5-B65F-5D4599190EC4}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sales Over Time'>
+    <window class='worksheet' maximized='true' name='Sales Over TIme'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1303,12 +1302,12 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card mode='slider' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card pane-specification-id='1' param='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' type='color' />
             <card mode='slider' param='[Parameters].[Parameter 2]' type='parameter' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{2190D47D-8728-468E-87CF-A99625CD0ABA}' />
+      <simple-id uuid='{BF043F7C-DDE1-4AEB-938B-ECCCC0BE2E9C}' />
     </window>
   </windows>
 </workbook>
