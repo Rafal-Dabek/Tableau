@@ -23,6 +23,179 @@
     </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
   </_.fcp.AnimationOnByDefault.false...style>
   <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Select Country' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Argentina&quot;'>
+        <calculation class='tableau' formula='&quot;Argentina&quot;' />
+        <members>
+          <member value='&quot;Afghanistan&quot;' />
+          <member value='&quot;Albania&quot;' />
+          <member value='&quot;Algeria&quot;' />
+          <member value='&quot;Angola&quot;' />
+          <member value='&quot;Antigua &amp; Barbuda&quot;' />
+          <member value='&quot;Argentina&quot;' />
+          <member value='&quot;Armenia&quot;' />
+          <member value='&quot;Australia&quot;' />
+          <member value='&quot;Austria&quot;' />
+          <member value='&quot;Azerbaijan&quot;' />
+          <member value='&quot;Barbados&quot;' />
+          <member value='&quot;Belarus&quot;' />
+          <member value='&quot;Belgium&quot;' />
+          <member value='&quot;Belize&quot;' />
+          <member value='&quot;Benin&quot;' />
+          <member value='&quot;Bermuda&quot;' />
+          <member value='&quot;Bolivia&quot;' />
+          <member value='&quot;Bosnia Herzegovina&quot;' />
+          <member value='&quot;Brazil&quot;' />
+          <member value='&quot;Brunei Darussalam&quot;' />
+          <member value='&quot;Bulgaria&quot;' />
+          <member value='&quot;Burkina Faso&quot;' />
+          <member value='&quot;Burundi&quot;' />
+          <member value='&quot;Cameroon&quot;' />
+          <member value='&quot;Canada&quot;' />
+          <member value='&quot;Cape Verde&quot;' />
+          <member value='&quot;Central African Rep.&quot;' />
+          <member value='&quot;Chad&quot;' />
+          <member value='&quot;Chile&quot;' />
+          <member value='&quot;China PR&quot;' />
+          <member value='&quot;Colombia&quot;' />
+          <member value='&quot;Comoros&quot;' />
+          <member value='&quot;Congo&quot;' />
+          <member value='&quot;Costa Rica&quot;' />
+          <member value='&quot;Croatia&quot;' />
+          <member value='&quot;Cuba&quot;' />
+          <member value='&quot;Curacao&quot;' />
+          <member value='&quot;Cyprus&quot;' />
+          <member value='&quot;Czech Republic&quot;' />
+          <member value='&quot;Denmark&quot;' />
+          <member value='&quot;Dominican Republic&quot;' />
+          <member value='&quot;DR Congo&quot;' />
+          <member value='&quot;Ecuador&quot;' />
+          <member value='&quot;Egypt&quot;' />
+          <member value='&quot;El Salvador&quot;' />
+          <member value='&quot;England&quot;' />
+          <member value='&quot;Equatorial Guinea&quot;' />
+          <member value='&quot;Eritrea&quot;' />
+          <member value='&quot;Estonia&quot;' />
+          <member value='&quot;Ethiopia&quot;' />
+          <member value='&quot;Faroe Islands&quot;' />
+          <member value='&quot;Fiji&quot;' />
+          <member value='&quot;Finland&quot;' />
+          <member value='&quot;France&quot;' />
+          <member value='&quot;FYR Macedonia&quot;' />
+          <member value='&quot;Gabon&quot;' />
+          <member value='&quot;Gambia&quot;' />
+          <member value='&quot;Georgia&quot;' />
+          <member value='&quot;Germany&quot;' />
+          <member value='&quot;Ghana&quot;' />
+          <member value='&quot;Gibraltar&quot;' />
+          <member value='&quot;Greece&quot;' />
+          <member value='&quot;Grenada&quot;' />
+          <member value='&quot;Guam&quot;' />
+          <member value='&quot;Guatemala&quot;' />
+          <member value='&quot;Guinea&quot;' />
+          <member value='&quot;Guinea Bissau&quot;' />
+          <member value='&quot;Guyana&quot;' />
+          <member value='&quot;Haiti&quot;' />
+          <member value='&quot;Honduras&quot;' />
+          <member value='&quot;Hong Kong&quot;' />
+          <member value='&quot;Hungary&quot;' />
+          <member value='&quot;Iceland&quot;' />
+          <member value='&quot;India&quot;' />
+          <member value='&quot;Iran&quot;' />
+          <member value='&quot;Iraq&quot;' />
+          <member value='&quot;Israel&quot;' />
+          <member value='&quot;Italy&quot;' />
+          <member value='&quot;Ivory Coast&quot;' />
+          <member value='&quot;Jamaica&quot;' />
+          <member value='&quot;Japan&quot;' />
+          <member value='&quot;Kazakhstan&quot;' />
+          <member value='&quot;Kenya&quot;' />
+          <member value='&quot;Korea DPR&quot;' />
+          <member value='&quot;Korea Republic&quot;' />
+          <member value='&quot;Kosovo&quot;' />
+          <member value='&quot;Kuwait&quot;' />
+          <member value='&quot;Kyrgyzstan&quot;' />
+          <member value='&quot;Latvia&quot;' />
+          <member value='&quot;Lebanon&quot;' />
+          <member value='&quot;Liberia&quot;' />
+          <member value='&quot;Libya&quot;' />
+          <member value='&quot;Liechtenstein&quot;' />
+          <member value='&quot;Lithuania&quot;' />
+          <member value='&quot;Luxembourg&quot;' />
+          <member value='&quot;Madagascar&quot;' />
+          <member value='&quot;Mali&quot;' />
+          <member value='&quot;Malta&quot;' />
+          <member value='&quot;Mauritania&quot;' />
+          <member value='&quot;Mauritius&quot;' />
+          <member value='&quot;Mexico&quot;' />
+          <member value='&quot;Moldova&quot;' />
+          <member value='&quot;Montenegro&quot;' />
+          <member value='&quot;Montserrat&quot;' />
+          <member value='&quot;Morocco&quot;' />
+          <member value='&quot;Mozambique&quot;' />
+          <member value='&quot;Namibia&quot;' />
+          <member value='&quot;Netherlands&quot;' />
+          <member value='&quot;New Caledonia&quot;' />
+          <member value='&quot;New Zealand&quot;' />
+          <member value='&quot;Niger&quot;' />
+          <member value='&quot;Nigeria&quot;' />
+          <member value='&quot;Northern Ireland&quot;' />
+          <member value='&quot;Norway&quot;' />
+          <member value='&quot;Oman&quot;' />
+          <member value='&quot;Palestine&quot;' />
+          <member value='&quot;Panama&quot;' />
+          <member value='&quot;Paraguay&quot;' />
+          <member value='&quot;Peru&quot;' />
+          <member value='&quot;Philippines&quot;' />
+          <member value='&quot;Poland&quot;' />
+          <member value='&quot;Portugal&quot;' />
+          <member value='&quot;Puerto Rico&quot;' />
+          <member value='&quot;Qatar&quot;' />
+          <member value='&quot;Republic of Ireland&quot;' />
+          <member value='&quot;Romania&quot;' />
+          <member value='&quot;Russia&quot;' />
+          <member value='&quot;San Marino&quot;' />
+          <member value='&quot;São Tomé &amp; Príncipe&quot;' />
+          <member value='&quot;Saudi Arabia&quot;' />
+          <member value='&quot;Scotland&quot;' />
+          <member value='&quot;Senegal&quot;' />
+          <member value='&quot;Serbia&quot;' />
+          <member value='&quot;Sierra Leone&quot;' />
+          <member value='&quot;Slovakia&quot;' />
+          <member value='&quot;Slovenia&quot;' />
+          <member value='&quot;Somalia&quot;' />
+          <member value='&quot;South Africa&quot;' />
+          <member value='&quot;Spain&quot;' />
+          <member value='&quot;Sri Lanka&quot;' />
+          <member value='&quot;St Kitts Nevis&quot;' />
+          <member value='&quot;St Lucia&quot;' />
+          <member value='&quot;Sudan&quot;' />
+          <member value='&quot;Suriname&quot;' />
+          <member value='&quot;Swaziland&quot;' />
+          <member value='&quot;Sweden&quot;' />
+          <member value='&quot;Switzerland&quot;' />
+          <member value='&quot;Syria&quot;' />
+          <member value='&quot;Tanzania&quot;' />
+          <member value='&quot;Thailand&quot;' />
+          <member value='&quot;Togo&quot;' />
+          <member value='&quot;Trinidad &amp; Tobago&quot;' />
+          <member value='&quot;Tunisia&quot;' />
+          <member value='&quot;Turkey&quot;' />
+          <member value='&quot;Turkmenistan&quot;' />
+          <member value='&quot;Uganda&quot;' />
+          <member value='&quot;Ukraine&quot;' />
+          <member value='&quot;United States&quot;' />
+          <member value='&quot;Uruguay&quot;' />
+          <member value='&quot;Uzbekistan&quot;' />
+          <member value='&quot;Venezuela&quot;' />
+          <member value='&quot;Vietnam&quot;' />
+          <member value='&quot;Wales&quot;' />
+          <member value='&quot;Zambia&quot;' />
+          <member value='&quot;Zimbabwe&quot;' />
+        </members>
+      </column>
+    </datasource>
     <datasource caption='fifa18' inline='true' name='federated.1nnjxzf1n63slj135yx4904wpqse' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -1084,13 +1257,16 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column caption='Nationality 1' datatype='integer' name='[Calculation_1179380216530825216]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='{INCLUDE   [Nationality] :MAX([Overall])}' />
-      </column>
       <column caption='Jitter' datatype='integer' name='[Calculation_1179380216533303297]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='INDEX()'>
           <table-calc ordering-type='Rows' />
         </calculation>
+      </column>
+      <column caption='Nationality1' datatype='integer' name='[Calculation_1179380216591872003]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [Nationality]=[Parameters].[Parameter 1] then [Overall] END' />
+      </column>
+      <column caption='Top player for position' datatype='integer' name='[Calculation_1179380216592318468]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{fixed [Nationality], [Pivot Field Names]: MAX([Pivot Field Values])}' />
       </column>
       <column datatype='string' name='[Nationality]' role='dimension' type='nominal' />
       <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
@@ -2035,6 +2211,11 @@
         <semantic-value key='[Country].[Name]' value='&quot;Poland&quot;' />
       </semantic-values>
       <date-options start-of-week='monday' />
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Select Country' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Argentina&quot;'>
+          <calculation class='tableau' formula='&quot;Argentina&quot;' />
+        </column>
+      </datasource-dependencies>
       <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
         <objects>
           <object caption='fifa18.csv' id='fifa18.csv_724AF3594D444FD991C2233BBF23B727'>
@@ -2366,7 +2547,53 @@
     </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Sheet 2'>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fifa18' name='federated.1nnjxzf1n63slj135yx4904wpqse' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Select Country' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Argentina&quot;'>
+              <calculation class='tableau' formula='&quot;Argentina&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1nnjxzf1n63slj135yx4904wpqse'>
+            <column caption='Top player for position' datatype='integer' name='[Calculation_1179380216592318468]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{fixed [Nationality], [Pivot Field Names]: MAX([Pivot Field Values])}' />
+            </column>
+            <column datatype='string' name='[Nationality]' role='dimension' type='nominal' />
+            <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column caption='Positions Ratings' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
+            <column-instance column='[Nationality]' derivation='None' name='[none:Nationality:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1179380216592318468]' derivation='Sum' name='[sum:Calculation_1179380216592318468:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]'>
+            <groupfilter expression='[Nationality]= [Parameters].[Parameter 1]' function='filter' user:ui-marker='filter-by'>
+              <groupfilter function='level-members' level='[none:Nationality:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]</column>
+          </slices>
+          <aggregation value='false' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1nnjxzf1n63slj135yx4904wpqse].[sum:Calculation_1179380216592318468:qk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{01F11AAB-4476-4A5E-AFF4-50E4EF229270}' />
+    </worksheet>
+    <worksheet name='Soccer Pitch'>
       <table>
         <view>
           <datasources>
@@ -2375,8 +2602,8 @@
           <datasource-dependencies datasource='federated.1mo754q0xduvvy14a7eex0fb8f1a'>
             <column datatype='string' name='[Formation]' role='dimension' type='nominal' />
             <column datatype='string' name='[Position]' role='dimension' type='nominal' />
+            <column-instance column='[Position]' derivation='Attribute' name='[attr:Position:nk]' pivot='key' type='nominal' />
             <column-instance column='[Formation]' derivation='None' name='[none:Formation:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Position]' derivation='None' name='[none:Position:nk]' pivot='key' type='nominal' />
             <column-instance column='[x]' derivation='None' name='[none:x:qk]' pivot='key' type='quantitative' />
             <column-instance column='[y]' derivation='None' name='[none:y:qk]' pivot='key' type='quantitative' />
             <column datatype='integer' name='[x]' role='measure' type='quantitative' />
@@ -2403,7 +2630,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <tooltip column='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Position:nk]' />
+              <tooltip column='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[attr:Position:nk]' />
             </encodings>
             <style>
               <style-rule element='mark'>
@@ -2569,7 +2796,7 @@
       <simple-id uuid='{74729C1B-13D0-40FF-AE11-1A7074BB224F}' />
     </worksheet>
   </worksheets>
-  <windows source-height='51'>
+  <windows source-height='48'>
     <window class='worksheet' name='Team Rating'>
       <cards>
         <edge name='left'>
@@ -2593,7 +2820,7 @@
       </cards>
       <simple-id uuid='{C6006918-94F3-4750-8561-2672F2185C4A}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 2'>
+    <window class='worksheet' name='Soccer Pitch'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2620,6 +2847,34 @@
         </edge>
       </cards>
       <simple-id uuid='{A815BE20-4595-47E1-96C1-3453B372167D}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1D0D915E-835D-42FF-936B-1DC2B4A38C11}' />
     </window>
   </windows>
   <external>
