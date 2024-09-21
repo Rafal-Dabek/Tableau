@@ -2164,6 +2164,26 @@
     </datasource>
   </datasources>
   <worksheets>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{9A792266-B67C-4D9F-9AE9-115FDDC1A353}' />
+    </worksheet>
     <worksheet name='Team Rating'>
       <table>
         <view>
@@ -2317,7 +2337,7 @@
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Team Rating'>
+    <window class='worksheet' name='Team Rating'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2339,6 +2359,29 @@
         </edge>
       </cards>
       <simple-id uuid='{C6006918-94F3-4750-8561-2672F2185C4A}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A815BE20-4595-47E1-96C1-3453B372167D}' />
     </window>
   </windows>
 </workbook>
