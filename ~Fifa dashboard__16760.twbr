@@ -17,7 +17,6 @@
     <SheetIdentifierTracking />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
-    <WorksheetBackgroundTransparency />
     <ZoneBackgroundTransparency />
   </document-format-change-manifest>
   <preferences>
@@ -2957,14 +2956,11 @@
   </worksheets>
   <dashboards>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 1'>
-      <layout-options>
-        <title>
-          <formatted-text>
-            <run>Fifa 18 Player Ratings</run>
-          </formatted-text>
-        </title>
-      </layout-options>
-      <style />
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#2e4d5e' />
+        </style-rule>
+      </style>
       <size sizing-mode='automatic' />
       <datasources>
         <datasource name='Parameters' />
@@ -3148,56 +3144,83 @@
       </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='97550' id='16' param='vert' type-v2='layout-flow' w='98698' x='651' y='1225'>
-            <zone h='6432' id='17' type-v2='title' w='98698' x='651' y='1225'>
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='4' />
-              </zone-style>
-            </zone>
-            <zone h='91118' id='7' param='horz' type-v2='layout-flow' w='98698' x='651' y='7657'>
-              <zone h='91118' id='3' param='horz' type-v2='layout-flow' w='98698' x='651' y='7657'>
-                <zone fixed-size='747' h='91118' id='5' is-fixed='true' name='Team Rating' w='61432' x='651' y='7657'>
-                  <layout-cache has-max-size-h='true' has-max-size-w='true' maxheight='338' maxwidth='1202' minheight='338' minwidth='1202' type-h='scalable' type-w='scalable' />
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone h='91118' id='11' param='vert' type-v2='layout-flow' w='37266' x='62083' y='7657'>
-                  <zone h='31700' id='12' name='Top Player Wage' w='37266' x='62083' y='7657'>
-                    <layout-cache fixed-size-h='199' minwidth='202' type-h='fixed' type-w='scalable' />
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='11485' id='14' mode='slider' name='Soccer Pitch' param='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]' type-v2='filter' w='37266' x='62083' y='39357'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='47933' id='13' name='Soccer Pitch' w='37266' x='62083' y='50842'>
-                    <layout-cache minheight='143' minwidth='105' type-h='scalable' type-w='scalable' />
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
+          <zone h='97550' id='14' param='horz' type-v2='layout-flow' w='49349' x='651' y='1225'>
+            <zone h='97550' id='9' param='vert' type-v2='layout-flow' w='36330' x='651' y='1225'>
+              <zone h='6432' id='11' type-v2='title' w='36330' x='651' y='1225'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='91118' id='6' param='vert' type-v2='layout-flow' w='36330' x='651' y='7657'>
+                <zone h='91118' id='3' param='horz' type-v2='layout-flow' w='36330' x='651' y='7657'>
+                  <zone h='91118' id='7' type-v2='layout-basic' w='36330' x='651' y='7657'>
+                    <zone h='91118' id='10' type-v2='layout-basic' w='36330' x='651' y='7657'>
+                      <zone h='91118' id='12' name='Team Rating' w='36330' x='651' y='7657'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                    </zone>
                   </zone>
                 </zone>
               </zone>
             </zone>
+            <zone fixed-size='160' h='97550' id='13' is-fixed='true' param='vert' type-v2='layout-flow' w='13019' x='36981' y='1225'>
+              <zone h='10107' id='15' name='Team Rating' pane-specification-id='1' param='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216601075717:nk]' type-v2='size' w='13019' x='36981' y='1225'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='10107' id='16' name='Team Rating' pane-specification-id='1' param='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216601075717:nk]' type-v2='color' w='13019' x='36981' y='11332'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7963' id='17' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='13019' x='36981' y='21439'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='11485' id='19' mode='slider' name='Soccer Pitch' param='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]' type-v2='filter' w='13019' x='36981' y='29402'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='48775' id='18' name='Soccer Pitch' w='49349' x='50000' y='50000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='48775' id='20' name='Top Player Wage' w='49349' x='50000' y='1225'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
           </zone>
           <zone-style>
             <format attr='border-color' value='#000000' />
@@ -3206,7 +3229,6 @@
             <format attr='margin' value='8' />
           </zone-style>
         </zone>
-        <zone h='6738' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='13019' x='39056' y='2603' />
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
@@ -3318,7 +3340,7 @@
         </viewpoint>
         <viewpoint name='Top Player Wage' />
       </viewpoints>
-      <active id='17' />
+      <active id='20' />
       <simple-id uuid='{CD16D25D-F25A-4808-9125-22FEE74F006C}' />
     </window>
   </windows>
