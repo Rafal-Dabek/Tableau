@@ -3,7 +3,9 @@
 <!-- build 20241.24.0515.0324                               -->
 <workbook original-version='18.1' source-build='2024.1.3 (20241.24.0515.0324)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
     <IntuitiveSorting />
     <IntuitiveSorting_SP2 />
     <_.fcp.MarkAnimation.true...MarkAnimation />
@@ -11,9 +13,12 @@
     <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
     <SheetIdentifierTracking />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
   </document-format-change-manifest>
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
@@ -2565,140 +2570,6 @@
     </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Sheet 3'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='fifa18' name='federated.1nnjxzf1n63slj135yx4904wpqse' />
-            <datasource name='Parameters' />
-          </datasources>
-          <datasource-dependencies datasource='Parameters'>
-            <column caption='Select Country' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Argentina&quot;'>
-              <calculation class='tableau' formula='&quot;Argentina&quot;' />
-            </column>
-          </datasource-dependencies>
-          <datasource-dependencies datasource='federated.1nnjxzf1n63slj135yx4904wpqse'>
-            <column caption='Top player for position' datatype='string' name='[Calculation_1179380216592318468]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='if {fixed [Nationality], [Pivot Field Names]: MAX([Pivot Field Values])}=[Pivot Field Values] THEN [Name]end' />
-            </column>
-            <column datatype='string' name='[Name]' role='dimension' type='nominal' />
-            <column datatype='string' name='[Nationality]' role='dimension' type='nominal' />
-            <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
-            <column caption='Positions Ratings' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[Wage (€)]' role='measure' type='quantitative' />
-            <column-instance column='[Wage (€)]' derivation='Avg' name='[avg:Wage (€):qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_1179380216592318468]' derivation='None' name='[none:Calculation_1179380216592318468:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Nationality]' derivation='None' name='[none:Nationality:nk]' pivot='key' type='nominal' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]'>
-            <groupfilter count='5' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
-              <groupfilter direction='DESC' expression='AVG([Wage (€)])' function='order' user:ui-marker='order'>
-                <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
-                  <groupfilter function='level-members' level='[none:Calculation_1179380216592318468:nk]' />
-                  <groupfilter function='member' level='[none:Calculation_1179380216592318468:nk]' member='%null%' />
-                </groupfilter>
-              </groupfilter>
-            </groupfilter>
-          </filter>
-          <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]'>
-            <groupfilter expression='[Nationality]= [Parameters].[Parameter 1]' function='filter' user:ui-marker='filter-by'>
-              <groupfilter function='level-members' level='[none:Nationality:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-            </groupfilter>
-          </filter>
-          <shelf-sorts>
-            <shelf-sort-v2 dimension-to-sort='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' shelf='rows' />
-          </shelf-sorts>
-          <slices>
-            <column>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]</column>
-            <column>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='axis'>
-            <encoding attr='space' class='1' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' field-type='quantitative' fold='true' scope='cols' type='space' />
-            <format attr='display' class='1' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='false' />
-            <format attr='title' class='0' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='' />
-            <format attr='auto-subtitle' class='0' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='false' />
-            <format attr='stroke-size' scope='rows' value='0' />
-            <format attr='tick-color' scope='cols' value='#00000000' />
-          </style-rule>
-          <style-rule element='label'>
-            <format attr='color' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]' value='#ffffff' />
-            <format attr='color' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' value='#ffffff' />
-          </style-rule>
-          <style-rule element='table'>
-            <format attr='background-color' value='#2e4d5e' />
-          </style-rule>
-          <style-rule element='worksheet'>
-            <format attr='display-field-labels' scope='rows' value='false' />
-          </style-rule>
-          <style-rule element='gridline'>
-            <format attr='stroke-size' scope='cols' value='0' />
-            <format attr='line-visibility' scope='cols' value='off' />
-          </style-rule>
-          <style-rule element='zeroline'>
-            <format attr='stroke-size' scope='rows' value='0' />
-            <format attr='line-visibility' scope='rows' value='off' />
-            <format attr='stroke-size' scope='cols' value='0' />
-            <format attr='line-visibility' scope='cols' value='off' />
-          </style-rule>
-          <style-rule element='table-div'>
-            <format attr='div-level' scope='cols' value='0' />
-            <format attr='div-level' scope='rows' value='1' />
-          </style-rule>
-          <style-rule element='header-div'>
-            <format attr='stroke-size' scope='rows' value='0' />
-            <format attr='line-visibility' scope='rows' value='off' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-                <format attr='mark-color' value='#ffffff' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' x-index='1'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Bar' />
-            <mark-sizing mark-sizing-setting='marks-scaling-off' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-                <format attr='size' value='0.5487293004989624' />
-                <format attr='mark-color' value='#ffffff' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]</rows>
-        <cols>([federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk] + [federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk])</cols>
-      </table>
-      <simple-id uuid='{01F11AAB-4476-4A5E-AFF4-50E4EF229270}' />
-    </worksheet>
     <worksheet name='Soccer Pitch'>
       <table>
         <view>
@@ -2949,7 +2820,413 @@
       </table>
       <simple-id uuid='{74729C1B-13D0-40FF-AE11-1A7074BB224F}' />
     </worksheet>
+    <worksheet name='Top Player Wage'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fifa18' name='federated.1nnjxzf1n63slj135yx4904wpqse' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Select Country' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Argentina&quot;'>
+              <calculation class='tableau' formula='&quot;Argentina&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1nnjxzf1n63slj135yx4904wpqse'>
+            <column caption='Top player for position' datatype='string' name='[Calculation_1179380216592318468]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if {fixed [Nationality], [Pivot Field Names]: MAX([Pivot Field Values])}=[Pivot Field Values] THEN [Name]end' />
+            </column>
+            <column datatype='string' name='[Name]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Nationality]' role='dimension' type='nominal' />
+            <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column caption='Positions Ratings' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Wage (€)]' role='measure' type='quantitative' />
+            <column-instance column='[Wage (€)]' derivation='Avg' name='[avg:Wage (€):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1179380216592318468]' derivation='None' name='[none:Calculation_1179380216592318468:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Nationality]' derivation='None' name='[none:Nationality:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]'>
+            <groupfilter count='5' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([Wage (€)])' function='order' user:ui-marker='order'>
+                <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+                  <groupfilter function='level-members' level='[none:Calculation_1179380216592318468:nk]' />
+                  <groupfilter function='member' level='[none:Calculation_1179380216592318468:nk]' member='%null%' />
+                </groupfilter>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]' context='true'>
+            <groupfilter expression='[Nationality]= [Parameters].[Parameter 1]' function='filter' user:ui-marker='filter-by'>
+              <groupfilter function='level-members' level='[none:Nationality:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]</column>
+            <column>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='1' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' field-type='quantitative' fold='true' scope='cols' type='space' />
+            <format attr='display' class='1' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='false' />
+            <format attr='title' class='0' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' scope='cols' value='false' />
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='tick-color' scope='cols' value='#00000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]' value='#ffffff' />
+            <format attr='color' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#2e4d5e' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='div-level' scope='cols' value='0' />
+            <format attr='div-level' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-color' value='#ffffff' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk]' x-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='size' value='0.30685082077980042' />
+                <format attr='mark-color' value='#ffffff' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216592318468:nk]</rows>
+        <cols>([federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk] + [federated.1nnjxzf1n63slj135yx4904wpqse].[avg:Wage (€):qk])</cols>
+      </table>
+      <simple-id uuid='{01F11AAB-4476-4A5E-AFF4-50E4EF229270}' />
+    </worksheet>
   </worksheets>
+  <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Fifa 18 Player Ratings</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource name='Parameters' />
+        <datasource caption='Sheet 1 (106+-+Soccer+Positions+Data)' name='federated.1mo754q0xduvvy14a7eex0fb8f1a' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Select Country' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Argentina&quot;'>
+          <calculation class='tableau' formula='&quot;Argentina&quot;' />
+          <members>
+            <member value='&quot;Afghanistan&quot;' />
+            <member value='&quot;Albania&quot;' />
+            <member value='&quot;Algeria&quot;' />
+            <member value='&quot;Angola&quot;' />
+            <member value='&quot;Antigua &amp; Barbuda&quot;' />
+            <member value='&quot;Argentina&quot;' />
+            <member value='&quot;Armenia&quot;' />
+            <member value='&quot;Australia&quot;' />
+            <member value='&quot;Austria&quot;' />
+            <member value='&quot;Azerbaijan&quot;' />
+            <member value='&quot;Barbados&quot;' />
+            <member value='&quot;Belarus&quot;' />
+            <member value='&quot;Belgium&quot;' />
+            <member value='&quot;Belize&quot;' />
+            <member value='&quot;Benin&quot;' />
+            <member value='&quot;Bermuda&quot;' />
+            <member value='&quot;Bolivia&quot;' />
+            <member value='&quot;Bosnia Herzegovina&quot;' />
+            <member value='&quot;Brazil&quot;' />
+            <member value='&quot;Brunei Darussalam&quot;' />
+            <member value='&quot;Bulgaria&quot;' />
+            <member value='&quot;Burkina Faso&quot;' />
+            <member value='&quot;Burundi&quot;' />
+            <member value='&quot;Cameroon&quot;' />
+            <member value='&quot;Canada&quot;' />
+            <member value='&quot;Cape Verde&quot;' />
+            <member value='&quot;Central African Rep.&quot;' />
+            <member value='&quot;Chad&quot;' />
+            <member value='&quot;Chile&quot;' />
+            <member value='&quot;China PR&quot;' />
+            <member value='&quot;Colombia&quot;' />
+            <member value='&quot;Comoros&quot;' />
+            <member value='&quot;Congo&quot;' />
+            <member value='&quot;Costa Rica&quot;' />
+            <member value='&quot;Croatia&quot;' />
+            <member value='&quot;Cuba&quot;' />
+            <member value='&quot;Curacao&quot;' />
+            <member value='&quot;Cyprus&quot;' />
+            <member value='&quot;Czech Republic&quot;' />
+            <member value='&quot;Denmark&quot;' />
+            <member value='&quot;Dominican Republic&quot;' />
+            <member value='&quot;DR Congo&quot;' />
+            <member value='&quot;Ecuador&quot;' />
+            <member value='&quot;Egypt&quot;' />
+            <member value='&quot;El Salvador&quot;' />
+            <member value='&quot;England&quot;' />
+            <member value='&quot;Equatorial Guinea&quot;' />
+            <member value='&quot;Eritrea&quot;' />
+            <member value='&quot;Estonia&quot;' />
+            <member value='&quot;Ethiopia&quot;' />
+            <member value='&quot;Faroe Islands&quot;' />
+            <member value='&quot;Fiji&quot;' />
+            <member value='&quot;Finland&quot;' />
+            <member value='&quot;France&quot;' />
+            <member value='&quot;FYR Macedonia&quot;' />
+            <member value='&quot;Gabon&quot;' />
+            <member value='&quot;Gambia&quot;' />
+            <member value='&quot;Georgia&quot;' />
+            <member value='&quot;Germany&quot;' />
+            <member value='&quot;Ghana&quot;' />
+            <member value='&quot;Gibraltar&quot;' />
+            <member value='&quot;Greece&quot;' />
+            <member value='&quot;Grenada&quot;' />
+            <member value='&quot;Guam&quot;' />
+            <member value='&quot;Guatemala&quot;' />
+            <member value='&quot;Guinea&quot;' />
+            <member value='&quot;Guinea Bissau&quot;' />
+            <member value='&quot;Guyana&quot;' />
+            <member value='&quot;Haiti&quot;' />
+            <member value='&quot;Honduras&quot;' />
+            <member value='&quot;Hong Kong&quot;' />
+            <member value='&quot;Hungary&quot;' />
+            <member value='&quot;Iceland&quot;' />
+            <member value='&quot;India&quot;' />
+            <member value='&quot;Iran&quot;' />
+            <member value='&quot;Iraq&quot;' />
+            <member value='&quot;Israel&quot;' />
+            <member value='&quot;Italy&quot;' />
+            <member value='&quot;Ivory Coast&quot;' />
+            <member value='&quot;Jamaica&quot;' />
+            <member value='&quot;Japan&quot;' />
+            <member value='&quot;Kazakhstan&quot;' />
+            <member value='&quot;Kenya&quot;' />
+            <member value='&quot;Korea DPR&quot;' />
+            <member value='&quot;Korea Republic&quot;' />
+            <member value='&quot;Kosovo&quot;' />
+            <member value='&quot;Kuwait&quot;' />
+            <member value='&quot;Kyrgyzstan&quot;' />
+            <member value='&quot;Latvia&quot;' />
+            <member value='&quot;Lebanon&quot;' />
+            <member value='&quot;Liberia&quot;' />
+            <member value='&quot;Libya&quot;' />
+            <member value='&quot;Liechtenstein&quot;' />
+            <member value='&quot;Lithuania&quot;' />
+            <member value='&quot;Luxembourg&quot;' />
+            <member value='&quot;Madagascar&quot;' />
+            <member value='&quot;Mali&quot;' />
+            <member value='&quot;Malta&quot;' />
+            <member value='&quot;Mauritania&quot;' />
+            <member value='&quot;Mauritius&quot;' />
+            <member value='&quot;Mexico&quot;' />
+            <member value='&quot;Moldova&quot;' />
+            <member value='&quot;Montenegro&quot;' />
+            <member value='&quot;Montserrat&quot;' />
+            <member value='&quot;Morocco&quot;' />
+            <member value='&quot;Mozambique&quot;' />
+            <member value='&quot;Namibia&quot;' />
+            <member value='&quot;Netherlands&quot;' />
+            <member value='&quot;New Caledonia&quot;' />
+            <member value='&quot;New Zealand&quot;' />
+            <member value='&quot;Niger&quot;' />
+            <member value='&quot;Nigeria&quot;' />
+            <member value='&quot;Northern Ireland&quot;' />
+            <member value='&quot;Norway&quot;' />
+            <member value='&quot;Oman&quot;' />
+            <member value='&quot;Palestine&quot;' />
+            <member value='&quot;Panama&quot;' />
+            <member value='&quot;Paraguay&quot;' />
+            <member value='&quot;Peru&quot;' />
+            <member value='&quot;Philippines&quot;' />
+            <member value='&quot;Poland&quot;' />
+            <member value='&quot;Portugal&quot;' />
+            <member value='&quot;Puerto Rico&quot;' />
+            <member value='&quot;Qatar&quot;' />
+            <member value='&quot;Republic of Ireland&quot;' />
+            <member value='&quot;Romania&quot;' />
+            <member value='&quot;Russia&quot;' />
+            <member value='&quot;San Marino&quot;' />
+            <member value='&quot;São Tomé &amp; Príncipe&quot;' />
+            <member value='&quot;Saudi Arabia&quot;' />
+            <member value='&quot;Scotland&quot;' />
+            <member value='&quot;Senegal&quot;' />
+            <member value='&quot;Serbia&quot;' />
+            <member value='&quot;Sierra Leone&quot;' />
+            <member value='&quot;Slovakia&quot;' />
+            <member value='&quot;Slovenia&quot;' />
+            <member value='&quot;Somalia&quot;' />
+            <member value='&quot;South Africa&quot;' />
+            <member value='&quot;Spain&quot;' />
+            <member value='&quot;Sri Lanka&quot;' />
+            <member value='&quot;St Kitts Nevis&quot;' />
+            <member value='&quot;St Lucia&quot;' />
+            <member value='&quot;Sudan&quot;' />
+            <member value='&quot;Suriname&quot;' />
+            <member value='&quot;Swaziland&quot;' />
+            <member value='&quot;Sweden&quot;' />
+            <member value='&quot;Switzerland&quot;' />
+            <member value='&quot;Syria&quot;' />
+            <member value='&quot;Tanzania&quot;' />
+            <member value='&quot;Thailand&quot;' />
+            <member value='&quot;Togo&quot;' />
+            <member value='&quot;Trinidad &amp; Tobago&quot;' />
+            <member value='&quot;Tunisia&quot;' />
+            <member value='&quot;Turkey&quot;' />
+            <member value='&quot;Turkmenistan&quot;' />
+            <member value='&quot;Uganda&quot;' />
+            <member value='&quot;Ukraine&quot;' />
+            <member value='&quot;United States&quot;' />
+            <member value='&quot;Uruguay&quot;' />
+            <member value='&quot;Uzbekistan&quot;' />
+            <member value='&quot;Venezuela&quot;' />
+            <member value='&quot;Vietnam&quot;' />
+            <member value='&quot;Wales&quot;' />
+            <member value='&quot;Zambia&quot;' />
+            <member value='&quot;Zimbabwe&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.1mo754q0xduvvy14a7eex0fb8f1a'>
+        <column datatype='string' name='[Formation]' role='dimension' type='nominal' />
+        <column-instance column='[Formation]' derivation='None' name='[none:Formation:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97550' id='16' param='vert' type-v2='layout-flow' w='98698' x='651' y='1225'>
+            <zone h='6432' id='17' type-v2='title' w='98698' x='651' y='1225'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='91118' id='7' param='horz' type-v2='layout-flow' w='98698' x='651' y='7657'>
+              <zone h='91118' id='3' param='horz' type-v2='layout-flow' w='98698' x='651' y='7657'>
+                <zone fixed-size='747' h='91118' id='5' is-fixed='true' name='Team Rating' w='61432' x='651' y='7657'>
+                  <layout-cache has-max-size-h='true' has-max-size-w='true' maxheight='338' maxwidth='1202' minheight='338' minwidth='1202' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='91118' id='11' param='vert' type-v2='layout-flow' w='37266' x='62083' y='7657'>
+                  <zone h='31700' id='12' name='Top Player Wage' w='37266' x='62083' y='7657'>
+                    <layout-cache fixed-size-h='199' minwidth='202' type-h='fixed' type-w='scalable' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='11485' id='14' mode='slider' name='Soccer Pitch' param='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]' type-v2='filter' w='37266' x='62083' y='39357'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='47933' id='13' name='Soccer Pitch' w='37266' x='62083' y='50842'>
+                    <layout-cache minheight='143' minwidth='105' type-h='scalable' type-w='scalable' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='6738' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='13019' x='39056' y='2603' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E9CEA4CB-D3D7-4B20-B081-5CA7767ACAF6}' />
+    </dashboard>
+  </dashboards>
   <windows source-height='51'>
     <window class='worksheet' name='Team Rating'>
       <cards>
@@ -3006,7 +3283,7 @@
       </cards>
       <simple-id uuid='{A815BE20-4595-47E1-96C1-3453B372167D}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 3'>
+    <window class='worksheet' name='Top Player Wage'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3030,6 +3307,19 @@
         </edge>
       </cards>
       <simple-id uuid='{1D0D915E-835D-42FF-936B-1DC2B4A38C11}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Soccer Pitch'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Team Rating'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Top Player Wage' />
+      </viewpoints>
+      <active id='17' />
+      <simple-id uuid='{CD16D25D-F25A-4808-9125-22FEE74F006C}' />
     </window>
   </windows>
   <external>
