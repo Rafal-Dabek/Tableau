@@ -1092,9 +1092,18 @@
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
+      <column datatype='string' name='[Nationality]' role='dimension' type='nominal' />
       <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
       <column caption='Positions Ratings' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='fifa18.csv' datatype='table' name='[__tableau_internal_object_id__].[fifa18.csv_724AF3594D444FD991C2233BBF23B727]' role='measure' type='quantitative' />
+      <column-instance column='[Nationality]' derivation='None' name='[none:Nationality:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+      <group hidden='true' name='[Exclusions (Nationality,Positions)]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:Nationality:nk]' />
+          <groupfilter function='level-members' level='[none:Pivot Field Names:nk]' />
+        </groupfilter>
+      </group>
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
         <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_1ofudj1133d6c41bn2ep71o40g5g.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/21/2024 02:31:46 PM' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
@@ -2155,25 +2164,130 @@
     </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Sheet 1'>
+    <worksheet name='Team Rating'>
       <table>
         <view>
           <datasources>
             <datasource caption='fifa18' name='federated.1nnjxzf1n63slj135yx4904wpqse' />
           </datasources>
           <datasource-dependencies datasource='federated.1nnjxzf1n63slj135yx4904wpqse'>
+            <column caption='Jitter' datatype='integer' name='[Calculation_1179380216533303297]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
             <column datatype='string' name='[Nationality]' role='dimension' type='nominal' />
             <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
             <column caption='Positions Ratings' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
             <column-instance column='[Pivot Field Values]' derivation='Max' name='[max:Pivot Field Values:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Nationality]' derivation='None' name='[none:Nationality:nk]' pivot='key' type='nominal' />
             <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1179380216533303297]' derivation='User' name='[usr:Calculation_1179380216533303297:qk:3]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1nnjxzf1n63slj135yx4904wpqse].[Nationality]' ordering-type='Field' />
+            </column-instance>
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.1nnjxzf1n63slj135yx4904wpqse].[Exclusions (Nationality,Positions)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[none:Nationality:nk]' />
+                <groupfilter function='level-members' level='[none:Pivot Field Names:nk]' />
+              </groupfilter>
+              <groupfilter function='reorder-dimensionality'>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Pivot Field Names:nk]' member='&quot;GK&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Afghanistan&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Antigua &amp; Barbuda&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Armenia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Azerbaijan&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Barbados&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Belize&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Brunei Darussalam&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Burundi&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Central African Rep.&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Chad&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Cuba&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Cyprus&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Dominican Republic&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;El Salvador&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Eritrea&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Estonia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Ethiopia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Faroe Islands&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Fiji&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Gambia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Gibraltar&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Grenada&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Guam&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Guinea&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Guinea Bissau&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Guyana&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Honduras&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Hong Kong&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Iraq&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Jamaica&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Kazakhstan&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Korea DPR&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Kuwait&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Kyrgyzstan&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Liberia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Libya&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Liechtenstein&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Madagascar&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Malta&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Mauritania&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Mauritius&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Moldova&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Montserrat&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Mozambique&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Namibia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;New Caledonia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Niger&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Palestine&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Panama&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Qatar&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Sierra Leone&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Somalia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Sri Lanka&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;St Kitts Nevis&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;St Lucia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Sudan&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Suriname&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Swaziland&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Syria&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;São Tomé &amp; Príncipe&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Tanzania&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Thailand&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Togo&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Trinidad &amp; Tobago&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Turkmenistan&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Uganda&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Uzbekistan&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Vietnam&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Zambia&quot;' />
+                    <groupfilter function='member' level='[none:Nationality:nk]' member='&quot;Zimbabwe&quot;' />
+                  </groupfilter>
+                </groupfilter>
+                <order>
+                  <hierarchy name='[none:Nationality:nk]' />
+                  <hierarchy name='[none:Pivot Field Names:nk]' />
+                </order>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1nnjxzf1n63slj135yx4904wpqse].[Exclusions (Nationality,Positions)]</column>
+          </slices>
           <aggregation value='true' />
         </view>
-        <style />
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[usr:Calculation_1179380216533303297:qk:3]' scope='cols' value='false' />
+            <encoding attr='space' class='0' domain-expand='false' field='[federated.1nnjxzf1n63slj135yx4904wpqse].[max:Pivot Field Values:qk]' field-type='quantitative' scope='rows' type='space' />
+          </style-rule>
+        </style>
         <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
@@ -2186,17 +2300,24 @@
               <style-rule element='mark'>
                 <format attr='size' value='0.69165748357772827' />
               </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='274' />
+                <format attr='maxheight' value='274' />
+                <format attr='minwidth' value='100' />
+                <format attr='maxwidth' value='100' />
+                <format attr='aspect' value='0' />
+              </style-rule>
             </style>
           </pane>
         </panes>
         <rows>[federated.1nnjxzf1n63slj135yx4904wpqse].[max:Pivot Field Values:qk]</rows>
-        <cols>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Pivot Field Names:nk]</cols>
+        <cols>([federated.1nnjxzf1n63slj135yx4904wpqse].[none:Pivot Field Names:nk] * [federated.1nnjxzf1n63slj135yx4904wpqse].[usr:Calculation_1179380216533303297:qk:3])</cols>
       </table>
       <simple-id uuid='{74729C1B-13D0-40FF-AE11-1A7074BB224F}' />
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+    <window class='worksheet' maximized='true' name='Team Rating'>
       <cards>
         <edge name='left'>
           <strip size='160'>
