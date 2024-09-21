@@ -1087,11 +1087,16 @@
       <column caption='Nationality 1' datatype='integer' name='[Calculation_1179380216530825216]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{INCLUDE   [Nationality] :MAX([Overall])}' />
       </column>
+      <column caption='Jitter' datatype='integer' name='[Calculation_1179380216533303297]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='INDEX()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
       <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
       <column caption='Positions Ratings' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='fifa18.csv' datatype='table' name='[__tableau_internal_object_id__].[fifa18.csv_724AF3594D444FD991C2233BBF23B727]' role='measure' type='quantitative' />
-      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='false' units='records'>
-        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_028yt211y5efpm1686g0x184mwoa.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/21/2024 02:13:20 PM' username='tableau_internal_user'>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/rafal/AppData/Local/Temp/TableauTemp/#TableauTemp_1ofudj1133d6c41bn2ep71o40g5g.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/21/2024 02:31:46 PM' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
           <metadata-records>
@@ -1105,7 +1110,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>172</approx-count>
+              <approx-count>466</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1119,7 +1124,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>189</approx-count>
+              <approx-count>372</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1133,7 +1138,7 @@
               <family>fifa18.csv</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>14781</approx-count>
+              <approx-count>53971</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -1148,7 +1153,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>32</approx-count>
+              <approx-count>35</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1162,7 +1167,7 @@
               <family>fifa18.csv</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>17981</approx-count>
+              <approx-count>58781</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -1177,7 +1182,7 @@
               <family>fifa18.csv</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>156</approx-count>
+              <approx-count>382</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -1192,7 +1197,7 @@
               <family>fifa18.csv</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>156</approx-count>
+              <approx-count>382</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -1207,7 +1212,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>53</approx-count>
+              <approx-count>86</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1221,7 +1226,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>53</approx-count>
+              <approx-count>71</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1235,7 +1240,7 @@
               <family>fifa18.csv</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>1162</approx-count>
+              <approx-count>3095</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -1250,7 +1255,7 @@
               <family>fifa18.csv</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>1193</approx-count>
+              <approx-count>3183</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -1265,7 +1270,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>1876</approx-count>
+              <approx-count>5343</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1279,7 +1284,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>93</approx-count>
+              <approx-count>172</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1293,7 +1298,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>95</approx-count>
+              <approx-count>102</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1307,7 +1312,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>76</approx-count>
+              <approx-count>133</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1321,7 +1326,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>97</approx-count>
+              <approx-count>108</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1335,7 +1340,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>114</approx-count>
+              <approx-count>139</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1349,7 +1354,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>82</approx-count>
+              <approx-count>140</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1363,7 +1368,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>89</approx-count>
+              <approx-count>139</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1377,7 +1382,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>93</approx-count>
+              <approx-count>79</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1391,7 +1396,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>105</approx-count>
+              <approx-count>133</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1405,7 +1410,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>90</approx-count>
+              <approx-count>118</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1419,7 +1424,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>92</approx-count>
+              <approx-count>174</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1433,7 +1438,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>99</approx-count>
+              <approx-count>209</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1447,7 +1452,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>80</approx-count>
+              <approx-count>138</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1461,7 +1466,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>79</approx-count>
+              <approx-count>138</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1475,7 +1480,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>104</approx-count>
+              <approx-count>224</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1489,21 +1494,7 @@
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>97</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>GK</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[GK]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>GK</remote-alias>
-              <ordinal>28</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>61</approx-count>
+              <approx-count>178</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1513,11 +1504,11 @@
               <local-name>[Heading accuracy]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Heading accuracy</remote-alias>
-              <ordinal>29</ordinal>
+              <ordinal>28</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>103</approx-count>
+              <approx-count>153</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1527,11 +1518,11 @@
               <local-name>[Interceptions]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Interceptions</remote-alias>
-              <ordinal>30</ordinal>
+              <ordinal>29</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>93</approx-count>
+              <approx-count>142</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1541,11 +1532,11 @@
               <local-name>[Jumping]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Jumping</remote-alias>
-              <ordinal>31</ordinal>
+              <ordinal>30</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>76</approx-count>
+              <approx-count>114</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1555,11 +1546,11 @@
               <local-name>[Long passing]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Long passing</remote-alias>
-              <ordinal>32</ordinal>
+              <ordinal>31</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>88</approx-count>
+              <approx-count>132</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1569,11 +1560,11 @@
               <local-name>[Long shots]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Long shots</remote-alias>
-              <ordinal>33</ordinal>
+              <ordinal>32</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>90</approx-count>
+              <approx-count>130</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1583,11 +1574,11 @@
               <local-name>[Marking]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Marking</remote-alias>
-              <ordinal>34</ordinal>
+              <ordinal>33</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>91</approx-count>
+              <approx-count>117</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1597,11 +1588,11 @@
               <local-name>[Penalties]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Penalties</remote-alias>
-              <ordinal>35</ordinal>
+              <ordinal>34</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>99</approx-count>
+              <approx-count>111</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1611,11 +1602,11 @@
               <local-name>[Positioning]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Positioning</remote-alias>
-              <ordinal>36</ordinal>
+              <ordinal>35</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>86</approx-count>
+              <approx-count>120</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1625,11 +1616,11 @@
               <local-name>[Reactions]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Reactions</remote-alias>
-              <ordinal>37</ordinal>
+              <ordinal>36</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>66</approx-count>
+              <approx-count>124</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1639,11 +1630,11 @@
               <local-name>[Short passing]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Short passing</remote-alias>
-              <ordinal>38</ordinal>
+              <ordinal>37</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>98</approx-count>
+              <approx-count>121</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1653,11 +1644,11 @@
               <local-name>[Shot power]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Shot power</remote-alias>
-              <ordinal>39</ordinal>
+              <ordinal>38</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>88</approx-count>
+              <approx-count>137</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1667,11 +1658,11 @@
               <local-name>[Sliding tackle]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Sliding tackle</remote-alias>
-              <ordinal>40</ordinal>
+              <ordinal>39</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>96</approx-count>
+              <approx-count>139</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1681,11 +1672,11 @@
               <local-name>[Sprint speed]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Sprint speed</remote-alias>
-              <ordinal>41</ordinal>
+              <ordinal>40</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>97</approx-count>
+              <approx-count>137</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1695,11 +1686,11 @@
               <local-name>[Stamina]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Stamina</remote-alias>
-              <ordinal>42</ordinal>
+              <ordinal>41</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>90</approx-count>
+              <approx-count>102</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1709,11 +1700,11 @@
               <local-name>[Standing tackle]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Standing tackle</remote-alias>
-              <ordinal>43</ordinal>
+              <ordinal>42</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>94</approx-count>
+              <approx-count>140</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1723,11 +1714,11 @@
               <local-name>[Strength]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Strength</remote-alias>
-              <ordinal>44</ordinal>
+              <ordinal>43</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>71</approx-count>
+              <approx-count>116</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1737,11 +1728,11 @@
               <local-name>[Vision]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Vision</remote-alias>
-              <ordinal>45</ordinal>
+              <ordinal>44</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>98</approx-count>
+              <approx-count>168</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1751,53 +1742,11 @@
               <local-name>[Volleys]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Volleys</remote-alias>
-              <ordinal>46</ordinal>
+              <ordinal>45</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>91</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>CAM</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[CAM]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>CAM</remote-alias>
-              <ordinal>47</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>70</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>CB</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[CB]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>CB</remote-alias>
-              <ordinal>48</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>69</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>CDM</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[CDM]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>CDM</remote-alias>
-              <ordinal>49</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>64</approx-count>
+              <approx-count>154</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1807,25 +1756,11 @@
               <local-name>[CF]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>CF</remote-alias>
-              <ordinal>50</ordinal>
+              <ordinal>46</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>62</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>CM</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[CM]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>CM</remote-alias>
-              <ordinal>51</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>70</approx-count>
+              <approx-count>100</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1835,11 +1770,11 @@
               <local-name>[ID]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>ID</remote-alias>
-              <ordinal>52</ordinal>
+              <ordinal>47</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>17981</approx-count>
+              <approx-count>58781</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1849,25 +1784,11 @@
               <local-name>[LAM]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>LAM</remote-alias>
-              <ordinal>53</ordinal>
+              <ordinal>48</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>70</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>LB</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[LB]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>LB</remote-alias>
-              <ordinal>54</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>63</approx-count>
+              <approx-count>123</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1877,11 +1798,11 @@
               <local-name>[LCB]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>LCB</remote-alias>
-              <ordinal>55</ordinal>
+              <ordinal>49</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>69</approx-count>
+              <approx-count>103</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1891,11 +1812,11 @@
               <local-name>[LCM]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>LCM</remote-alias>
-              <ordinal>56</ordinal>
+              <ordinal>50</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>70</approx-count>
+              <approx-count>127</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1905,11 +1826,11 @@
               <local-name>[LDM]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>LDM</remote-alias>
-              <ordinal>57</ordinal>
+              <ordinal>51</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>64</approx-count>
+              <approx-count>111</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1919,25 +1840,11 @@
               <local-name>[LF]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>LF</remote-alias>
-              <ordinal>58</ordinal>
+              <ordinal>52</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>62</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>LM</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[LM]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>LM</remote-alias>
-              <ordinal>59</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>72</approx-count>
+              <approx-count>100</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1947,25 +1854,11 @@
               <local-name>[LS]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>LS</remote-alias>
-              <ordinal>60</ordinal>
+              <ordinal>53</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>57</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>LW</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[LW]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>LW</remote-alias>
-              <ordinal>61</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>75</approx-count>
+              <approx-count>83</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1975,11 +1868,11 @@
               <local-name>[LWB]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>LWB</remote-alias>
-              <ordinal>62</ordinal>
+              <ordinal>54</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>58</approx-count>
+              <approx-count>83</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -1989,11 +1882,11 @@
               <local-name>[Preferred Positions]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>Preferred Positions</remote-alias>
-              <ordinal>63</ordinal>
+              <ordinal>55</ordinal>
               <family>fifa18.csv</family>
               <local-type>string</local-type>
               <aggregation>Count</aggregation>
-              <approx-count>513</approx-count>
+              <approx-count>1490</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -2004,25 +1897,11 @@
               <local-name>[RAM]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>RAM</remote-alias>
-              <ordinal>64</ordinal>
+              <ordinal>56</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>70</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>RB</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[RB]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>RB</remote-alias>
-              <ordinal>65</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>63</approx-count>
+              <approx-count>123</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -2032,11 +1911,11 @@
               <local-name>[RCB]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>RCB</remote-alias>
-              <ordinal>66</ordinal>
+              <ordinal>57</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>69</approx-count>
+              <approx-count>103</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -2046,11 +1925,11 @@
               <local-name>[RCM]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>RCM</remote-alias>
-              <ordinal>67</ordinal>
+              <ordinal>58</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>70</approx-count>
+              <approx-count>127</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -2060,11 +1939,11 @@
               <local-name>[RDM]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>RDM</remote-alias>
-              <ordinal>68</ordinal>
+              <ordinal>59</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>64</approx-count>
+              <approx-count>111</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -2074,25 +1953,11 @@
               <local-name>[RF]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>RF</remote-alias>
-              <ordinal>69</ordinal>
+              <ordinal>60</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>62</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>RM</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[RM]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>RM</remote-alias>
-              <ordinal>70</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>72</approx-count>
+              <approx-count>100</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -2102,25 +1967,11 @@
               <local-name>[RS]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>RS</remote-alias>
-              <ordinal>71</ordinal>
+              <ordinal>61</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>57</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>RW</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[RW]</local-name>
-              <parent-name>[Extract]</parent-name>
-              <remote-alias>RW</remote-alias>
-              <ordinal>72</ordinal>
-              <family>fifa18.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>75</approx-count>
+              <approx-count>83</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -2130,25 +1981,40 @@
               <local-name>[RWB]</local-name>
               <parent-name>[Extract]</parent-name>
               <remote-alias>RWB</remote-alias>
-              <ordinal>73</ordinal>
+              <ordinal>62</ordinal>
               <family>fifa18.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>58</approx-count>
+              <approx-count>83</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
-              <remote-name>ST</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[ST]</local-name>
+              <remote-name>Pivot Field Names</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Pivot Field Names]</local-name>
               <parent-name>[Extract]</parent-name>
-              <remote-alias>ST</remote-alias>
-              <ordinal>74</ordinal>
-              <family>fifa18.csv</family>
+              <remote-alias>Pivot Field Names</remote-alias>
+              <ordinal>63</ordinal>
+              <family>Pivot</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pivot Field Values</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Pivot Field Values]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Pivot Field Values</remote-alias>
+              <ordinal>64</ordinal>
+              <family>Pivot</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
-              <approx-count>57</approx-count>
+              <approx-count>96</approx-count>
               <contains-null>true</contains-null>
               <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[fifa18.csv_724AF3594D444FD991C2233BBF23B727]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
@@ -2296,12 +2162,12 @@
             <datasource caption='fifa18' name='federated.1nnjxzf1n63slj135yx4904wpqse' />
           </datasources>
           <datasource-dependencies datasource='federated.1nnjxzf1n63slj135yx4904wpqse'>
-            <column caption='Nationality 1' datatype='integer' name='[Calculation_1179380216530825216]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='{INCLUDE   [Nationality] :MAX([Overall])}' />
-            </column>
             <column datatype='string' name='[Nationality]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[Overall]' role='measure' type='quantitative' />
-            <column-instance column='[Calculation_1179380216530825216]' derivation='Attribute' name='[attr:Calculation_1179380216530825216:qk]' pivot='key' type='quantitative' />
+            <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column caption='Positions Ratings' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
+            <column-instance column='[Pivot Field Values]' derivation='Max' name='[max:Pivot Field Values:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Nationality]' derivation='None' name='[none:Nationality:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -2312,13 +2178,19 @@
               <breakdown value='auto' />
             </view>
             <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
             <encodings>
-              <lod column='[federated.1nnjxzf1n63slj135yx4904wpqse].[attr:Calculation_1179380216530825216:qk]' />
+              <lod column='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Nationality:nk]' />
             </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.69165748357772827' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
-        <rows />
-        <cols />
+        <rows>[federated.1nnjxzf1n63slj135yx4904wpqse].[max:Pivot Field Values:qk]</rows>
+        <cols>[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Pivot Field Names:nk]</cols>
       </table>
       <simple-id uuid='{74729C1B-13D0-40FF-AE11-1A7074BB224F}' />
     </worksheet>
