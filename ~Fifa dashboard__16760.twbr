@@ -2474,6 +2474,7 @@
       <mapped-images>
         <mapped-image caption='Soccer Pitch' expression='file:///F:/Soccer Pitch.png' name='[MappedImage1]'>
           <mapping bottom='0' left='0' right='474' top='500' x='[x]' y='[y]' />
+          <image-options lock-aspect-ratio='false' />
         </mapped-image>
       </mapped-images>
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
@@ -2586,7 +2587,7 @@
             <column datatype='integer' name='[y]' role='measure' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]'>
-            <groupfilter function='member' level='[none:Formation:nk]' member='&quot;3-4-3&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <groupfilter function='member' level='[none:Formation:nk]' member='&quot;4-3-1-2&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]</column>
@@ -2603,6 +2604,13 @@
           <style-rule element='table'>
             <format attr='background-color' value='#2e4d5e' />
           </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='title' field='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]' value='Select a formation'>
+              <formatted-text>
+                <run fontcolor='#ffffff'>Select a formation</run>
+              </formatted-text>
+            </format>
+          </style-rule>
         </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
@@ -2613,6 +2621,12 @@
             <encodings>
               <tooltip column='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[attr:Position:nk]' />
             </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Position:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1mo754q0xduvvy14a7eex0fb8f1a].[attr:Position:nk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
             <style>
               <style-rule element='mark'>
                 <format attr='shape' value='Ball/png-clipart-soccer-ball-best-26367-free-icons-and-png-backgrounds-soccer-ball-png-free-600_589.png' />
@@ -2956,6 +2970,15 @@
   </worksheets>
   <dashboards>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#ffffff' fontsize='14'>FIFA 18 Player Ratings </run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#b4b4b4' fontsize='14'>Comparing FIFA 18 players ratngs by country</run>
+          </formatted-text>
+        </title>
+      </layout-options>
       <style>
         <style-rule element='table'>
           <format attr='background-color' value='#2e4d5e' />
@@ -3144,9 +3167,9 @@
       </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='97550' id='14' param='horz' type-v2='layout-flow' w='49349' x='651' y='1225'>
-            <zone h='97550' id='9' param='vert' type-v2='layout-flow' w='36330' x='651' y='1225'>
-              <zone h='6432' id='11' type-v2='title' w='36330' x='651' y='1225'>
+          <zone h='97550' id='14' param='horz' type-v2='layout-flow' w='52807' x='651' y='1225'>
+            <zone h='97550' id='9' param='vert' type-v2='layout-flow' w='52807' x='651' y='1225'>
+              <zone h='9495' id='11' type-v2='title' w='52807' x='651' y='1225'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -3154,11 +3177,24 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='91118' id='6' param='vert' type-v2='layout-flow' w='36330' x='651' y='7657'>
-                <zone h='91118' id='3' param='horz' type-v2='layout-flow' w='36330' x='651' y='7657'>
-                  <zone h='91118' id='7' type-v2='layout-basic' w='36330' x='651' y='7657'>
-                    <zone h='91118' id='10' type-v2='layout-basic' w='36330' x='651' y='7657'>
-                      <zone h='91118' id='12' name='Team Rating' w='36330' x='651' y='7657'>
+              <zone custom-title='true' h='13017' id='17' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='52807' x='651' y='10720'>
+                <formatted-text>
+                  <run fontcolor='#ffffff' fontsize='15'>Select a Country</run>
+                  <run>Æ&#10;</run>
+                  <run fontcolor='#ffffff' fontsize='12'>Top player ratings for each country</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='75038' id='6' param='vert' type-v2='layout-flow' w='52807' x='651' y='23737'>
+                <zone h='75038' id='3' param='horz' type-v2='layout-flow' w='52807' x='651' y='23737'>
+                  <zone h='75038' id='7' type-v2='layout-basic' w='52807' x='651' y='23737'>
+                    <zone h='75038' id='10' type-v2='layout-basic' w='52807' x='651' y='23737'>
+                      <zone h='75038' id='12' name='Team Rating' show-title='false' w='52807' x='651' y='23737'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -3171,42 +3207,8 @@
                 </zone>
               </zone>
             </zone>
-            <zone fixed-size='160' h='97550' id='13' is-fixed='true' param='vert' type-v2='layout-flow' w='13019' x='36981' y='1225'>
-              <zone h='10107' id='15' name='Team Rating' pane-specification-id='1' param='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216601075717:nk]' type-v2='size' w='13019' x='36981' y='1225'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='10107' id='16' name='Team Rating' pane-specification-id='1' param='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Calculation_1179380216601075717:nk]' type-v2='color' w='13019' x='36981' y='11332'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='7963' id='17' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='13019' x='36981' y='21439'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='11485' id='19' mode='slider' name='Soccer Pitch' param='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]' type-v2='filter' w='13019' x='36981' y='29402'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
           </zone>
-          <zone h='48775' id='18' name='Soccer Pitch' w='49349' x='50000' y='50000'>
+          <zone h='45023' id='18' name='Soccer Pitch' show-title='false' w='45891' x='53458' y='53752'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -3214,7 +3216,15 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='48775' id='20' name='Top Player Wage' w='49349' x='50000' y='1225'>
+          <zone h='41195' id='20' name='Top Player Wage' w='45891' x='53458' y='1225'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='11332' id='19' mode='slider' name='Soccer Pitch' param='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Formation:nk]' type-v2='filter' w='45891' x='53458' y='42420'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -3338,7 +3348,9 @@
         <viewpoint name='Team Rating'>
           <zoom type='entire-view' />
         </viewpoint>
-        <viewpoint name='Top Player Wage' />
+        <viewpoint name='Top Player Wage'>
+          <zoom type='entire-view' />
+        </viewpoint>
       </viewpoints>
       <active id='20' />
       <simple-id uuid='{CD16D25D-F25A-4808-9125-22FEE74F006C}' />
