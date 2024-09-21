@@ -18,6 +18,7 @@
     <SheetIdentifierTracking />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
   </document-format-change-manifest>
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
@@ -1009,6 +1010,12 @@
           <style-rule element='gridline'>
             <format attr='stroke-size' value='0' />
           </style-rule>
+          <style-rule element='legend'>
+            <format attr='border-color' value='#b4b4b4' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
         </style>
         <panes>
           <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
@@ -1260,9 +1267,9 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='97122' id='11' param='horz' type-v2='layout-flow' w='98666' x='667' y='1439'>
-            <zone h='97122' id='5' param='vert' type-v2='layout-flow' w='85333' x='667' y='1439'>
-              <zone h='7554' id='7' type-v2='title' w='85333' x='667' y='1439'>
+          <zone h='97138' id='11' param='horz' type-v2='layout-flow' w='98666' x='667' y='1431'>
+            <zone h='97138' id='5' param='vert' type-v2='layout-flow' w='98666' x='667' y='1431'>
+              <zone h='7513' id='7' type-v2='title' w='98666' x='667' y='1431'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1270,9 +1277,9 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='89568' id='6' type-v2='layout-basic' w='85333' x='667' y='8993'>
-                <zone h='89568' id='8' param='vert' type-v2='layout-flow' w='85333' x='667' y='8993'>
-                  <zone fixed-size='142' h='26979' id='9' is-fixed='true' name='Cumulative Sales By Region' w='85333' x='667' y='8993'>
+              <zone h='89625' id='6' type-v2='layout-basic' w='98666' x='667' y='8944'>
+                <zone h='89625' id='8' param='vert' type-v2='layout-flow' w='98666' x='667' y='8944'>
+                  <zone fixed-size='213' h='39535' id='9' is-fixed='true' name='Cumulative Sales By Region' w='98666' x='667' y='8944'>
                     <layout-cache type-h='cell' type-w='fixed' />
                     <zone-style>
                       <format attr='border-color' value='#000000' />
@@ -1281,7 +1288,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='62589' id='15' name='Sales Over TIme' w='85333' x='667' y='35972'>
+                  <zone h='50090' id='15' name='Sales Over TIme' w='98666' x='667' y='48479'>
                     <layout-cache minheight='584' type-h='scalable' type-w='fixed' />
                     <zone-style>
                       <format attr='border-color' value='#000000' />
@@ -1293,16 +1300,6 @@
                 </zone>
               </zone>
             </zone>
-            <zone fixed-size='160' h='97122' id='10' is-fixed='true' param='vert' type-v2='layout-flow' w='13333' x='86000' y='1439'>
-              <zone h='11871' id='12' name='Cumulative Sales By Region' pane-specification-id='2' param='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' type-v2='color' w='13333' x='86000' y='1439'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
           </zone>
           <zone-style>
             <format attr='border-color' value='#000000' />
@@ -1311,6 +1308,7 @@
             <format attr='margin' value='8' />
           </zone-style>
         </zone>
+        <zone h='13849' id='12' name='Cumulative Sales By Region' pane-specification-id='2' param='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' show-title='false' type-v2='color' w='11667' x='87250' y='35432' />
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
@@ -1427,10 +1425,10 @@
           <zoom type='entire-view' />
         </viewpoint>
         <viewpoint name='Sales Over TIme'>
-          <zoom type='entire-view' />
+          <zoom type='fit-width' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='12' />
       <device-preview visible='true' />
       <simple-id uuid='{B81C1959-163F-4ADF-AEC5-D68B8A298CD5}' />
     </window>
