@@ -3,13 +3,18 @@
 <!-- build 20241.24.0515.0324                               -->
 <workbook original-version='18.1' source-build='2024.1.3 (20241.24.0515.0324)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
     <ISO8601PeriodTypes />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
     <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
     <SheetIdentifierTracking />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
@@ -992,12 +997,17 @@
         <style>
           <style-rule element='axis'>
             <encoding attr='space' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' field-type='quantitative' fold='true' scope='cols' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' scope='cols' value='false' />
+            <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' scope='cols' value='false' />
           </style-rule>
           <style-rule element='cell'>
             <format attr='text-format' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' value='c#,##0&quot;$&quot;;-#,##0&quot;$&quot;' />
           </style-rule>
           <style-rule element='label'>
             <format attr='text-format' field='[federated.1qhag010a0urge13k17g70oh605n].[usr:Calculation_606297163930112001:ok]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
           </style-rule>
         </style>
         <panes>
@@ -1172,6 +1182,13 @@
               </groupfilter>
             </groupfilter>
           </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1qhag010a0urge13k17g70oh605n].[none:Region:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' shelf='rows'>
+              <sort-filter-info>
+                <sort-filter level-name='[federated.1qhag010a0urge13k17g70oh605n].[mn:Order Date:ok]' member-value='1' />
+              </sort-filter-info>
+            </shelf-sort-v2>
+          </shelf-sorts>
           <slices>
             <column>[federated.1qhag010a0urge13k17g70oh605n].[none:Region:nk]</column>
           </slices>
@@ -1182,6 +1199,12 @@
             <encoding attr='space' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
             <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]' scope='rows' value='false' />
             <format attr='display' class='0' field='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_606297163927777280:qk]' scope='rows' value='false' />
+            <format attr='border-color' value='#b0b0b0' />
+            <format attr='border-width' value='1' />
+            <format attr='hnaxis' value='false' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1qhag010a0urge13k17g70oh605n].[mn:Order Date:ok]' value='iLLLLL' />
           </style-rule>
         </style>
         <panes>
@@ -1193,6 +1216,11 @@
             <encodings>
               <color column='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' />
             </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='aspect' value='1' />
+              </style-rule>
+            </style>
           </pane>
           <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qhag010a0urge13k17g70oh605n].[sum:Calculation_682858357185110016:qk]'>
             <view>
@@ -1219,6 +1247,90 @@
       <simple-id uuid='{9FC44BAE-A458-42AE-BF5E-7C421B331BA6}' />
     </worksheet>
   </worksheets>
+  <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>YoY Sales</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97122' id='11' param='horz' type-v2='layout-flow' w='98666' x='667' y='1439'>
+            <zone h='97122' id='5' param='vert' type-v2='layout-flow' w='85333' x='667' y='1439'>
+              <zone h='7554' id='7' type-v2='title' w='85333' x='667' y='1439'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='89568' id='6' type-v2='layout-basic' w='85333' x='667' y='8993'>
+                <zone h='89568' id='8' param='vert' type-v2='layout-flow' w='85333' x='667' y='8993'>
+                  <zone fixed-size='142' h='26979' id='9' is-fixed='true' name='Cumulative Sales By Region' w='85333' x='667' y='8993'>
+                    <layout-cache type-h='cell' type-w='fixed' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='62589' id='15' name='Sales Over TIme' w='85333' x='667' y='35972'>
+                    <layout-cache minheight='584' type-h='scalable' type-w='fixed' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='97122' id='10' is-fixed='true' param='vert' type-v2='layout-flow' w='13333' x='86000' y='1439'>
+              <zone h='11871' id='12' name='Cumulative Sales By Region' pane-specification-id='2' param='[federated.1qhag010a0urge13k17g70oh605n].[:Measure Names]' type-v2='color' w='13333' x='86000' y='1439'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{225C3531-ADDC-4F37-BB1F-9188AB1C3A6C}' />
+    </dashboard>
+  </dashboards>
   <windows source-height='30'>
     <window class='worksheet' name='Cumulative Sales By Region'>
       <cards>
@@ -1280,7 +1392,7 @@
       </cards>
       <simple-id uuid='{F32774BD-88E4-48A5-B65F-5D4599190EC4}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sales Over TIme'>
+    <window class='worksheet' name='Sales Over TIme'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1308,6 +1420,19 @@
         </edge>
       </cards>
       <simple-id uuid='{BF043F7C-DDE1-4AEB-938B-ECCCC0BE2E9C}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Cumulative Sales By Region'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sales Over TIme'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <device-preview visible='true' />
+      <simple-id uuid='{B81C1959-163F-4ADF-AEC5-D68B8A298CD5}' />
     </window>
   </windows>
 </workbook>
