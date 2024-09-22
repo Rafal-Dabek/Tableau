@@ -2569,6 +2569,21 @@
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
   </datasources>
+  <datasource-relationships>
+    <datasource-dependencies datasource='federated.1mo754q0xduvvy14a7eex0fb8f1a'>
+      <column datatype='string' name='[Position]' role='dimension' type='nominal' />
+      <column-instance column='[Position]' derivation='None' name='[none:Position:nk]' pivot='key' type='nominal' />
+    </datasource-dependencies>
+    <datasource-dependencies datasource='federated.1nnjxzf1n63slj135yx4904wpqse'>
+      <column caption='Positions' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+      <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+    </datasource-dependencies>
+    <datasource-relationship source='federated.1nnjxzf1n63slj135yx4904wpqse' target='federated.1mo754q0xduvvy14a7eex0fb8f1a'>
+      <column-mapping>
+        <map key='[federated.1nnjxzf1n63slj135yx4904wpqse].[none:Pivot Field Names:nk]' value='[federated.1mo754q0xduvvy14a7eex0fb8f1a].[none:Position:nk]' />
+      </column-mapping>
+    </datasource-relationship>
+  </datasource-relationships>
   <actions>
     <action caption='HIghtlight action' name='[Action1_409F0AAD56F1480DB641BBE053146F4E]'>
       <activation auto-clear='true' type='on-select' />
@@ -3362,7 +3377,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='20' />
+      <active id='12' />
       <simple-id uuid='{CD16D25D-F25A-4808-9125-22FEE74F006C}' />
     </window>
   </windows>
